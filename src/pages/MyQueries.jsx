@@ -1,13 +1,15 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../provider/AuthProvider";
 
 const MyQueries = () => {
+    const {user} = useContext(AuthContext);
     const [queries, setQueries] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:5000/queries")
+        axios.get(`http://localhost:5000/queries/email/${user?.email}`)
             .then((response) => {
                 setQueries(response.data);
             })
@@ -52,19 +54,8 @@ const MyQueries = () => {
         });
     };
 
-    // if (queries.length === 0) {
-    //     return (
-    //         <div className="text-center">
-    //             <p className="text-gray-700 text-lg">No queries found. Add your first query!</p>
-    //             <Link to={"/add-query"} className="bg-blue-500 text-white py-2 px-4 mt-4 rounded-lg hover:bg-blue-600">
-    //                 Add Query
-    //             </Link>
-    //         </div>
-    //     );
-    // }
-
     return (
-        <div className=" p-6 ">
+        <div className="p-4 md:p-6">
             {/* Banner Section */}
             <div className="bg-gradient-to-r from-teal-300 via-blue-400 to-indigo-300 text-white py-8 px-6 w-full text-center rounded-lg shadow-xl">
                 {
@@ -82,22 +73,22 @@ const MyQueries = () => {
             </div>
 
             {/* Queries Section */}
-            <div className="mt-6  grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 container mx-auto">
+            <div className="mt-10 mb-5 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 container mx-auto">
                 {queries.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).map((query) => (
-                    <div key={query._id} className="bg-gradient-to-br from-teal-50 p-6 rounded-lg shadow-lg hover:shadow-xl transform transition duration-300 hover:scale-105">
+                    <div key={query._id} className="bg-gradient-to-br from-teal-50 p-6 rounded-lg shadow-lg hover:shadow-xl transform transition duration-300 hover:scale-105 border">
                         <img
                             src={query.productImageURL || "https://via.placeholder.com/300"}
                             alt={query.productName}
                             className="w-full h-40 xl:h-52 object-fill rounded-t-lg mb-4"
                         />
                         <h2 className="text-2xl font-bold mb-2 text-gray-800">{query.queryTitle}</h2>
-                        <p className="text-gray-600 text-sm mb-4">{new Date(query.createdAt).toLocaleString()}</p>
-                        <p className="text-gray-700 mb-4"><span className="font-semibold">Product:</span> {query.productName} - {query.productBrand}</p>
+                        <p className="text-gray-700 mb-4"><span className="font-semibold">Product:</span> {query.productName}</p>
+                        <p className="text-gray-600 text-sm mb-4">CreateAt: {new Date(query.createdAt).toLocaleString()}</p>
                         <div className="flex gap-3 flex-wrap">
-                            <Link to={`/query/${query._id}`} className="flex-1 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 text-center whitespace-nowrap">
+                            <Link to={`/details/${query._id}`} className="flex-1 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 text-center whitespace-nowrap">
                                 View Details
                             </Link>
-                            <Link to={`/update-query/${query._id}`} className="flex-1 bg-yellow-500 text-white py-2 px-4 rounded-lg hover:bg-yellow-600 text-center ">
+                            <Link to={`/update-query/${query._id}`} className="flex-1 bg-teal-500 text-white py-2 px-4 rounded-lg hover:bg-teal-600 text-center ">
                                 Update
                             </Link>
                             <button

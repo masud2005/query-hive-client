@@ -55,82 +55,82 @@ const AddQuery = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gray-100 flex flex-col items-center p-6">
-            {/* Banner Section */}
-            <div className="bg-blue-500 text-white py-6 px-4 w-full text-center rounded-lg shadow-md">
-                <h1 className="text-3xl font-bold">Add a New Query</h1>
-            </div>
+        <div className="flex flex-col items-center px-2 my-10">
+                
+            <h1 className="text-3xl font-bold"><span className="text-indigo-600">Add a</span> <span className="text-teal-600">New Query</span></h1>
 
             {/* Form Section */}
             <form
                 onSubmit={handleAddQuery}
-                className="bg-white p-6 mt-6 w-full max-w-lg shadow-lg rounded-lg"
+                className="bg-gradient-to-br from-teal-50 p-6 mt-6 w-full container max-w-5xl shadow-lg rounded-lg border"
             >
-                <div className="mb-4">
-                    <label className="block text-gray-700 font-medium mb-2">
+                <div className="mb-5 ">
+                    <label className="block text-gray-700 font-medium mb-2 text-base md:text-lg">
                         Product Name
                     </label>
                     <input
                         type="text"
                         name="productName"
                         placeholder="Enter product name"
-                        className="w-full p-3 border rounded-lg"
+                        className="input input-bordered w-full px-4 py-2 rounded-md border-gray-300 focus:outline-none focus:ring-1 focus:ring-teal-300 transition"
                         required
                     />
                 </div>
-                <div className="mb-4">
-                    <label className="block text-gray-700 font-medium mb-2">
+                <div className="mb-5  ">
+                    <label className="block text-gray-700 font-medium mb-2 text-base md:text-lg">
                         Product Brand
                     </label>
                     <input
                         type="text"
                         name="productBrand"
                         placeholder="Enter product brand"
-                        className="w-full p-3 border rounded-lg"
+                        className="input input-bordered w-full px-4 py-2 rounded-md border-gray-300 focus:outline-none focus:ring-1 focus:ring-teal-300 transition"
                         required
                     />
                 </div>
-                <div className="mb-4">
-                    <label className="block text-gray-700 font-medium mb-2">
+                <div className="mb-5  ">
+                    <label className="block text-gray-700 font-medium mb-2 text-base md:text-lg">
                         Product Image URL
                     </label>
                     <input
                         type="text"
                         name="productImageURL"
                         placeholder="Enter product image URL"
-                        className="w-full p-3 border rounded-lg"
+                        className="input input-bordered w-full px-4 py-2 rounded-md border-gray-300 focus:outline-none focus:ring-1 focus:ring-teal-300 transition"
                     />
                 </div>
-                <div className="mb-4">
-                    <label className="block text-gray-700 font-medium mb-2">
+                <div className="mb-5  ">
+                    <label className="block text-gray-700 font-medium mb-2 text-base md:text-lg">
                         Query Title
                     </label>
                     <input
                         type="text"
                         name="queryTitle"
                         placeholder="Enter your query title"
-                        className="w-full p-3 border rounded-lg"
+                        className="input input-bordered w-full px-4 py-2 rounded-md border-gray-300 focus:outline-none focus:ring-1 focus:ring-teal-300 transition"
                         required
                     />
                 </div>
-                <div className="mb-4">
-                    <label className="block text-gray-700 font-medium mb-2">
+                <div className="mb-5  ">
+                    <label className="block text-gray-700 font-medium mb-2 text-base md:text-lg">
                         Boycotting Reason Details
                     </label>
                     <textarea
                         name="boycottingReason"
                         placeholder="Explain why you want to boycott this product"
-                        className="w-full p-3 border rounded-lg"
+                        className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-1 focus:ring-teal-300 transition"
                         rows="4"
                         required
                     />
                 </div>
-                <button
-                    type="submit"
-                    className="bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600"
-                >
-                    Add Query
-                </button>
+                <div className="flex justify-center">
+                    <button
+                        type="submit"
+                        className="bg-teal-400 w-full font-medium text-lg py-3 px-6 rounded-lg hover:bg-teal-500"
+                    >
+                        Add Query
+                    </button>
+                </div>
             </form>
         </div>
     );
