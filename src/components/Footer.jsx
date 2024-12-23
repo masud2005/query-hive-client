@@ -24,7 +24,7 @@ const Footer = () => {
                 {/* Column 3 */}
                 <div>
                     <h4 className="text-3xl font-bold text-gray-800 mb-4">Follow Us</h4>
-                    <ul className="flex space-x-4 text-gray-700">
+                    <ul className="flex space-x-4 text-gray-700 flex-wrap">
                         <li>
                             <a href="https://www.facebook.com" target="_blank" rel="noreferrer">
                                 <i className="fab fa-facebook-f"></i> Facebook

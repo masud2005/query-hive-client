@@ -1,13 +1,41 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { IoMdClose, IoMdMenu } from "react-icons/io";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
+import Swal from "sweetalert2";
+import { Tooltip } from "react-tooltip";
 
 const Navbar = () => {
+    const { user, userLogout } = useContext(AuthContext);
+    const [menuOpen, setMenuOpen] = useState(false);
 
-    const [menuOpen, setMenuOpen] = useState(false)
+    const handleLogout = () => {
+        console.log('Logout');
+        userLogout()
+            .then(() => {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Logged Out Successfully!',
+                    text: 'You have been logged out. See you soon!',
+                    customClass: {
+                        confirmButton: 'bg-teal-400 text-white'
+                    }
+                });
+            })
+            .catch(error => {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Logout Failed',
+                    text: `Something went wrong: ${error.code}. Please try again.`,
+                    customClass: {
+                        confirmButton: 'bg-red-400 text-white'
+                    }
+                });
+            })
+    };
 
     return (
-        <nav className="h-[90px] place-content-center bg-gray-100">
+        <nav className="h-[90px] place-content-center">
             <div className="container mx-auto flex justify-between items-center  py-4 px-2">
                 {/* Left Section: Logo */}
                 <div className="flex items-center">
@@ -18,19 +46,29 @@ const Navbar = () => {
                 <div className="hidden lg:flex items-center gap-6">
                     <NavLink to="/" className={({ isActive }) => isActive ? 'text-lg font-semibold border-b-2 border-indigo-600 text-teal-600' : 'text-base hover:text-indigo-600'}>Home</NavLink>
                     <NavLink to="/queries" className={({ isActive }) => isActive ? 'text-lg font-semibold border-b-2 border-indigo-600 text-teal-600' : 'text-base hover:text-indigo-600'}>Queries</NavLink>
-                    {/* {
+                    {
                         user && <>
-                            <NavLink to="/add-equipment" className={({ isActive }) => isActive ? 'text-lg font-semibold border-b-2 border-indigo-600 text-teal-600' : 'text-base hover:text-indigo-600'}>Add Equipment</NavLink>
-                            <NavLink to="/my-equipment-list" className={({ isActive }) => isActive ? 'text-lg font-semibold border-b-2 border-indigo-600 text-teal-600' : 'text-base hover:text-indigo-600'}>My Equipment List</NavLink>
+                            <NavLink to="/recommendations-for-me" className={({ isActive }) => isActive ? 'text-lg font-semibold border-b-2 border-indigo-600 text-teal-600' : 'text-base hover:text-indigo-600'}>Recommendations For Me</NavLink>
+                            <NavLink to="/my-queries" className={({ isActive }) => isActive ? 'text-lg font-semibold border-b-2 border-indigo-600 text-teal-600' : 'text-base hover:text-indigo-600'}>My Queries</NavLink>
+                            <NavLink to="/my-recommendations" className={({ isActive }) => isActive ? 'text-lg font-semibold border-b-2 border-indigo-600 text-teal-600' : 'text-base hover:text-indigo-600'}>My recommendations</NavLink>
                         </>
-                    } */}
+                    }
                 </div>
 
-                {/* Right Section: Login/Register Buttons */}
+                {/* Right Section: Login/Logout Buttons */}
                 <div className="hidden lg:flex gap-3 items-center">
                     <div className='flex gap-8 items-center'>
-                        <NavLink to="/login" className={({ isActive }) => isActive ? 'text-lg font-semibold border-b-2 border-indigo-600 text-teal-600' : 'text-base hover:text-indigo-600'}>Login</NavLink>
-                        {/* <NavLink to="/register" className={({ isActive }) => isActive ? 'text-lg font-semibold border-b-2 border-indigo-600 text-teal-600' : 'text-base hover:text-indigo-600'}>Register</NavLink> */}
+                        {
+                            user ?
+                                <div className="flex items-center gap-3">
+                                    <div>
+                                        <img data-tooltip-id="my-tooltip-1" className="rounded-full w-[52px] h-[52px] border border-teal-600 shadow-md transition-transform transform hover:scale-110" src={user?.photoURL || 'https://img.icons8.com/?size=48&id=z-JBA_KtSkxG&format=png'} alt="" />
+                                    </div>
+                                    <NavLink onClick={handleLogout} className={({ isActive }) => isActive ? 'text-lg font-semibold border-b-2 border-indigo-600 text-teal-600' : 'text-base hover:text-indigo-600'}>Logout</NavLink>
+                                </div>
+                                :
+                                <NavLink to="/login" className={({ isActive }) => isActive ? 'text-lg font-semibold border-b-2 border-indigo-600 text-teal-600' : 'text-base hover:text-indigo-600'}>Login</NavLink>
+                        }
                     </div>
                 </div>
 
@@ -40,17 +78,44 @@ const Navbar = () => {
                 </div>
             </div>
 
+            {/* React Tooltip */}
+            <Tooltip
+                id="my-tooltip-1"
+                place="bottom"
+                variant="info"
+                content={user?.displayName || 'Anonymous User'}
+                className="z-50"
+            />
 
             {/* Mobile Menu */}
             <div className={`${menuOpen ? 'left-0' : '-left-[100%]'} absolute duration-500 w-full bg-gray-50/95`}>
                 <div className={`flex-col lg:hidden gap-4 py-4 px-4`}>
                     <NavLink to="/" className={({ isActive }) => isActive ? 'block text-lg font-semibold border-b-2 border-indigo-600 text-teal-600' : 'block text-base hover:text-teal-600 pt-2'} onClick={() => setMenuOpen(false)}>Home</NavLink>
                     <NavLink to="/queries" className={({ isActive }) => isActive ? 'block text-lg font-semibold border-b-2 border-indigo-600 text-teal-600' : 'block text-base hover:text-teal-600 pt-2'} onClick={() => setMenuOpen(false)}>Queries</NavLink>
+                    {
+                        user && <>
+                            <NavLink to="/recommendations-for-me" className={({ isActive }) => isActive ? 'block text-lg font-semibold border-b-2 border-indigo-600 text-teal-600' : 'block text-base hover:text-teal-600 pt-2'} onClick={() => setMenuOpen(false)}>Recommendations For Me</NavLink>
+                            <NavLink to="/my-queries" className={({ isActive }) => isActive ? 'block text-lg font-semibold border-b-2 border-indigo-600 text-teal-600' : 'block text-base hover:text-teal-600 pt-2'} onClick={() => setMenuOpen(false)}>My Queries</NavLink>
+                            <NavLink to="/my-recommendations" className={({ isActive }) => isActive ? 'block text-lg font-semibold border-b-2 border-indigo-600 text-teal-600' : 'block text-base hover:text-teal-600 pt-2'} onClick={() => setMenuOpen(false)}>My Recommendations</NavLink>
+                        </>
+                    }
+
                     {/* <NavLink to="/add-equipment" className={({ isActive }) => isActive ? 'block text-lg font-semibold border-b-2 border-indigo-600 text-teal-600' : 'block text-base hover:text-teal-600 pt-2'} onClick={() => setMenuOpen(false)}>Add Equipment</NavLink>
                     <NavLink to="/my-equipment-list" className={({ isActive }) => isActive ? 'block text-lg font-semibold border-b-2 border-indigo-600 text-teal-600' : 'block text-base hover:text-teal-600 pt-2'} onClick={() => setMenuOpen(false)}>My Equipment List</NavLink> */}
 
                     <div className='flex gap-10 justify-around pt-5 mt-4 border-t-2'>
-                        <NavLink to="/login" className={({ isActive }) => isActive ? 'block text-lg font-semibold border-b-2 border-indigo-600 text-teal-600' : 'block text-base hover:text-teal-600'} onClick={() => setMenuOpen(false)}>Login</NavLink>
+                        {/* <NavLink to="/login" className={({ isActive }) => isActive ? 'block text-lg font-semibold border-b-2 border-indigo-600 text-teal-600' : 'block text-base hover:text-teal-600'} onClick={() => setMenuOpen(false)}>Login</NavLink> */}
+                        {
+                            user ?
+                                <div className="flex items-center gap-3">
+                                    <div>
+                                        <img data-tooltip-id="my-tooltip-1" className="rounded-full w-[52px] h-[52px] border border-teal-600 shadow-md transition-transform transform hover:scale-110" src={user?.photoURL || 'https://img.icons8.com/?size=48&id=z-JBA_KtSkxG&format=png'} alt="" />
+                                    </div>
+                                    <NavLink onClick={handleLogout} className={({ isActive }) => isActive ? 'block text-lg font-semibold border-b-2 border-indigo-600 text-teal-600' : 'block text-base hover:text-teal-600'}>Logout</NavLink>
+                                </div>
+                                :
+                                <NavLink to="/login" className={({ isActive }) => isActive ? 'block text-lg font-semibold border-b-2 border-indigo-600 text-teal-600' : 'block text-base hover:text-teal-600'} onClick={() => setMenuOpen(false)}>Login</NavLink>
+                        }
                         {/* {
                             user ? <div className="flex items-center gap-3">
                                 <div>
