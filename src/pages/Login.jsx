@@ -1,11 +1,14 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 
 const Login = () => {
-
+    const { user, userLogin, loginWithGoogle } = useContext(AuthContext);
     const [showPassword, setShowPassword] = useState(false);
+    console.log(user);
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -14,11 +17,49 @@ const Login = () => {
         const password = form.password.value;
         console.log(email, password);
 
-
+        userLogin(email, password)
+            .then(result => {
+                console.log(result);
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Login Successful',
+                    text: `Welcome, ${result.user?.displayName || 'User'}! You are now logged in.`,
+                    customClass: {
+                        confirmButton: 'bg-teal-400 text-white'
+                    }
+                })
+            })
+            .catch(error => {
+                console.error(error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Login Failed',
+                    text: error.code,
+                    customClass: {
+                        confirmButton: 'bg-red-400 text-white'
+                    }
+                })
+            })
     }
 
     const handleLoginWithGoogle = () => {
-
+        loginWithGoogle()
+            .then(result => {
+                console.log(result);
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Login Successful',
+                    text: `Welcome, ${result.user.displayName || 'User'}! You are now logged in.`
+                })
+            })
+            .catch(error => {
+                console.log(error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Login Failed',
+                    text: error.code
+                })
+            })
     }
 
     return (
