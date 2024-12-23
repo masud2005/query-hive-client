@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Register = () => {
-
+    const { user, loginWithGoogle, createNewUser, updateProfileInfo } = useContext(AuthContext);
     const [showPassword, setShowPassword] = useState(false)
+    console.log(user);
 
     const handleRegister = (e) => {
         e.preventDefault();
@@ -14,10 +17,71 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(name, photo, email, password);
+
+        // Password Validation
+        const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+        if (!passwordPattern.test(password)) {
+            return Swal.fire({
+                icon: 'error',
+                title: 'Password Error',
+                text: 'Password must contain at least 6 characters, including UPPER/lowercase letters.',
+                customClass: {
+                    confirmButton: 'bg-red-400 text-white'
+                }
+            });
+            return;
+        }
+
+        createNewUser(email, password)
+            .then(result => {
+                console.log(result);
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Registration Successful',
+                    text: `Welcome, ${result.user?.displayName || 'User'}! Your account has been created.`,
+                    customClass: {
+                        confirmButton: 'bg-teal-400 text-white'
+                    }
+                });
+                updateProfileInfo(name, photo);
+            })
+            .catch(error => {
+                console.error(error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Registration Failed',
+                    text: error.code,
+                    customClass: {
+                        confirmButton: 'bg-red-400 text-white'
+                    }
+                });
+            })
     }
 
     const handleLoginWithGoogle = () => {
-
+        loginWithGoogle()
+            .then(result => {
+                console.log(result);
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Registration Successful',
+                    text: `Welcome, ${result.user?.displayName || 'User'}! Your account has been created.`,
+                    customClass: {
+                        confirmButton: 'bg-teal-400 text-white'
+                    }
+                });
+            })
+            .catch(error => {
+                console.error(error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Registration Failed',
+                    text: error.code,
+                    customClass: {
+                        confirmButton: 'bg-red-400 text-white'
+                    }
+                });
+            })
     }
 
     return (
@@ -37,7 +101,7 @@ const Register = () => {
                     {/* Photo URL Field */}
                     <div className="form-control">
                         <label className="label text-lg font-medium text-gray-700">Photo URL</label>
-                        <input type="text" name="photo" placeholder="Enter your photo URL" className="input input-bordered w-full px-4 py-2 rounded-md border-gray-300 focus:outline-none focus:ring-1 focus:ring-teal-300 transition" />
+                        <input type="text" name="photo" placeholder="Enter your photo URL" className="input input-bordered w-full px-4 py-2 rounded-md border-gray-300 focus:outline-none focus:ring-1 focus:ring-teal-300 transition" required/>
                     </div>
 
                     {/* Email Field */}
@@ -49,7 +113,7 @@ const Register = () => {
                     {/* Password Field */}
                     <div className="form-control relative">
                         <label className="label text-lg font-medium text-gray-700">Password</label>
-                        <input type={`${showPassword ? 'text' : 'password'}`} name="password" placeholder="Enter your password" className="input input-bordered w-full px-4 py-2 rounded-md border-gray-300 focus:outline-none focus:ring-1 focus:ring-teal-300 transition" />
+                        <input type={`${showPassword ? 'text' : 'password'}`} name="password" placeholder="Enter your password" className="input input-bordered w-full px-4 py-2 rounded-md border-gray-300 focus:outline-none focus:ring-1 focus:ring-teal-300 transition" required/>
                         <span onClick={() => setShowPassword(!showPassword)} className="absolute right-3 bottom-[10px] text-gray-600 bg-gray-100 rounded-full cursor-pointer p-1"> {showPassword ? <FaEyeSlash size={20} /> : <FaEye size={20} />} </span>
                     </div>
 
