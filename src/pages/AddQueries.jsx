@@ -2,11 +2,12 @@ import React, { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const AddQuery = () => {
 
     const { user } = useContext(AuthContext);
-
+    const navigate = useNavigate();
 
     const handleAddQuery = (e) => {
         e.preventDefault();
@@ -36,6 +37,7 @@ const AddQuery = () => {
                             confirmButton: 'bg-teal-400 text-white'
                         }
                     });
+                    navigate('/my-queries');
                 }
             })
             .catch(error => {
