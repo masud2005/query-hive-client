@@ -77,7 +77,7 @@ const MyRecommendations = () => {
                 My <span className="text-teal-500">Recommendations</span>
             </h1>
 
-            {/* Equipment Table */}
+            {/* My Recommendations Table */}
             {
                 myRecommendations.length === 0 ?
                     <>
@@ -91,7 +91,9 @@ const MyRecommendations = () => {
                                 <thead className="bg-gradient-to-r from-indigo-300 to-teal-300">
                                     <tr className="text-base text-black">
                                         <th>Sl No</th>
+                                        <th>Product Image</th>
                                         <th>Product Name</th>
+                                        <th>Product Title</th>
                                         <th>Recommend Reason</th>
                                         <th>Recommend Date</th>
                                         <th>Action</th>
@@ -101,7 +103,9 @@ const MyRecommendations = () => {
                                     {myRecommendations.map((recommend, index) => (
                                         <tr className="text-base" key={recommend._id}>
                                             <th>{index + 1}</th>
+                                            <td><img className="w-14 h-14 rounded-lg" src={recommend.recommendedProductImage} alt="Recommended Image..." /></td>
                                             <td>{recommend.productName}</td>
+                                            <td>{recommend.recommendationTitle  }</td>
                                             <td>{recommend.recommendationReason}</td>
                                             <td>{new Date(recommend.currentTime).toLocaleString()}</td>
                                             <td>
