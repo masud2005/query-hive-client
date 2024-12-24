@@ -9,7 +9,7 @@ const QueryDetails = () => {
     const loaderData = useLoaderData();
     const [query, setQuery] = useState(loaderData);
     const [recommendations, setRecommendations] = useState([]);
-    console.log(recommendations);
+    console.log(query);
 
     useEffect(() => {
         axios.get(`http://localhost:5000/queries/${query._id}/recommendations`)
@@ -46,7 +46,7 @@ const QueryDetails = () => {
 
         axios.post('http://localhost:5000/recommendations', recommendationQuery)
             .then(res => {
-                console.log(res.data); 
+                console.log(res.data);
                 if (res.data.insertedId) {
                     // alert('Recommendation added successfully!');
                     setQuery(prevQuery => ({
@@ -85,100 +85,109 @@ const QueryDetails = () => {
     return (
         <div className="container mx-auto py-6 my-10">
             {/* Main Section */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch px-2">
                 {/* User Information Section */}
-                <div className="bg-white shadow-lg rounded-lg p-6 flex flex-col">
-                    <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">User Information</h2>
-                    <div className="grid grid-cols-3 gap-4 items-start">
-                        <div className="col-span-1 flex justify-center">
+                <div className="bg-white shadow-lg rounded-xl p-6 space-y-8">
+                    {/* User Information Section */}
+                    <div className="flex flex-col items-center text-center">
+                        <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">User Information</h2>
+                        {/* Profile Picture */}
+                        <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-teal-500 shadow-md">
                             <img
-                                src={query.productImageURL}
-                                alt="Product"
-                                className="w-40 h-40 rounded-lg object-cover shadow-md"
+                                src={query.userPhotoURL || "https://via.placeholder.com/150"}
+                                alt="User Profile"
+                                className="w-full h-full object-cover"
                             />
                         </div>
-                        <div className="col-span-2 space-y-4">
-                            <p className="text-gray-700">
-                                <strong>Query Title:</strong> {query.queryTitle}
-                            </p>
-                            <p className="text-gray-700">
-                                <strong>Product Name:</strong> {query.productName}
-                            </p>
-                            <p className="text-gray-700">
-                                <strong>Product Brand:</strong> {query.productBrand}
-                            </p>
-                            <p className="text-gray-700">
-                                <strong>Created By:</strong> {query.userName} (<span className="text-blue-500">{query.userEmail}</span>)
-                            </p>
-                            <p className="text-gray-700">
-                                <strong>Reason:</strong> {query.boycottingReason}
-                            </p>
-                            <p className="text-gray-700">
-                                <strong>Recommendations Count:</strong> {query.recommendationCount}
-                            </p>
+
+                        {/* User Name */}
+                        <h3 className="mt-4 text-xl md:text-2xl font-bold text-gray-800">{query.userName}</h3>
+
+                        {/* User Email */}
+                        <p className="mt-2 text-gray-600 text-sm md:text-base">
+                            <span className="font-semibold text-teal-500">Email:</span> {query.userEmail}
+                        </p>
+                    </div>
+
+                    {/* Product Information Section */}
+                    <div className="border-t pt-6 flex flex-col md:flex-row gap-6 ">
+                        {/* Product Image */}
+                        <div className="flex-shrink-0 w-full md:w-1/3 h-40 md:h-52 rounded-lg overflow-hidden shadow-md">
+                            <img
+                                src={query.productImageURL || "https://via.placeholder.com/300"}
+                                alt="Product"
+                                className="w-full h-full object-cover"
+                            />
+                        </div>
+
+                        {/* Product Details */}
+                        <div className="flex-grow place-content-center">
+                            <div className="space-y-4 text-gray-700">
+                                <span className="font-semibold text-teal-500">Product Name:</span> {query.queryTitle} <br />
+                                <span className="font-semibold text-teal-500">Product Name:</span> {query.productName || "Not Provided"} <br />
+                                <span className="font-semibold text-teal-500">Product Brand:</span> {query.productBrand} <br />
+                                <span className="font-semibold text-teal-500">Created Date:</span> {new Date(query.createdAt).toLocaleString()} <br />
+                                <span className="font-semibold text-teal-500">Recommendations Count:</span> {query.recommendationCount}
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 {/* Recommendation Form */}
-                <div className="bg-gray-50 shadow-lg rounded-lg p-6 flex flex-col">
-                    <h3 className="text-2xl font-semibold text-gray-800 mb-4">Add a Recommendation</h3>
+                <div className=" bg-gray-50 shadow-lg rounded-lg p-6 flex flex-col">
+                    <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6 text-center">Add a Recommendation</h3>
                     <form onSubmit={handleRecommendation} className="flex flex-col space-y-4">
                         <div>
                             <label
-                                htmlFor="recommendationTitle"
-                                className="block text-sm font-medium text-gray-700"
+                                className="font-medium text-gray-700"
                             >
                                 Recommendation Title
                             </label>
                             <input
                                 type="text"
                                 name="recommendationTitle"
-                                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-teal-300 transition"
                                 placeholder="Enter title"
                                 required
                             />
                         </div>
                         <div>
                             <label
-                                htmlFor="recommendedProductName"
-                                className="block text-sm font-medium text-gray-700"
+                                className="font-medium text-gray-700"
                             >
                                 Recommended Product Name
                             </label>
                             <input
                                 type="text"
                                 name="recommendedProductName"
-                                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-teal-300 transition"
                                 placeholder="Enter product name"
                                 required
                             />
                         </div>
                         <div>
                             <label
-                                htmlFor="recommendedProductImage"
-                                className="block text-sm font-medium text-gray-700"
+                                className="font-medium text-gray-700"
                             >
                                 Recommended Product Image (URL)
                             </label>
                             <input
                                 type="url"
                                 name="recommendedProductImage"
-                                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-teal-300 transition"
                                 placeholder="Enter image URL"
                                 required
                             />
                         </div>
                         <div>
                             <label
-                                htmlFor="recommendationReason"
-                                className="block text-sm font-medium text-gray-700"
+                                className="font-medium text-gray-700"
                             >
                                 Recommendation Reason
                             </label>
                             <textarea
                                 name="recommendationReason"
-                                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-teal-300 transition"
                                 placeholder="Enter reason"
                                 rows="4"
                                 required
@@ -186,7 +195,7 @@ const QueryDetails = () => {
                         </div>
                         <button
                             type="submit"
-                            className="bg-gradient-to-r from-blue-500 to-teal-400 text-white px-4 py-2 rounded-md shadow hover:bg-blue-600 transition"
+                            className="bg-gradient-to-r from-blue-400 to-teal-400 hover:from-blue-500 hover:to-teal-500 text-white px-4 py-2 rounded-md shadow"
                         >
                             Add Recommendation
                         </button>
@@ -194,10 +203,10 @@ const QueryDetails = () => {
                 </div>
             </div>
 
-            <div className="container mx-auto pt-6">
+            <div className="pt-6">
                 {/* Recommendations List Section */}
                 <div className="bg-white shadow-lg rounded-lg p-6">
-                    <h3 className="text-2xl font-semibold text-gray-800 mb-6 text-center">All Recommendations</h3>
+                    <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6 text-center">All Recommendations</h3>
                     <div className="space-y-6">
                         {
                             recommendations.length === 0 &&
@@ -206,7 +215,7 @@ const QueryDetails = () => {
                         {recommendations.map((recommendation, index) => (
                             <div
                                 key={recommendation._id}
-                                className="bg-gray-50 p-4 rounded-lg shadow-md border hover:shadow-lg transition-shadow flex gap-4 items-start"
+                                className="bg-gray-50 p-4 rounded-lg shadow-md border hover:shadow-lg transition-shadow flex gap-4 items-center"
                             >
                                 {/* Recommended Product Image */}
                                 <img

@@ -30,7 +30,7 @@ const RecentQueries = () => {
                 {queries.map(query => (
                     <div
                         key={query._id}
-                        className="rounded-lg overflow-hidden shadow-lg bg-white group"
+                        className="rounded-lg overflow-hidden shadow-lg bg-white group flex flex-col h-full"
                     >
                         {/* Card Image */}
                         <div className="relative overflow-hidden">
@@ -41,16 +41,17 @@ const RecentQueries = () => {
                             />
                         </div>
                         {/* Card Content */}
-                        <div className="p-6 border-t border-gray-200">
+                        <div className="p-6 flex-1 flex flex-col border-t border-gray-200">
                             <h3 className="text-xl font-bold text-gray-800 mb-2">{query.queryTitle}</h3>
                             <p className="text-gray-500 mb-2">{query.description}</p>
                             <p className="text-gray-500">Brand: {query.productBrand}</p>
                             <p className="text-gray-500 mt-1">{query.boycottingReason}</p>
                             <p className="text-gray-500 mt-1">Recommendations: {query.recommendationCount}</p>
-                            <div className="mt-4 text-center">
-                                <p className="text-sm text-gray-400">Posted by {query.userName}</p>
-                                <p className="text-sm text-gray-400">{new Date(query.createdAt).toLocaleString()}</p>
-                            </div>
+                        </div>
+                        {/* User Info */}
+                        <div className="p-4 bg-gray-100 mt-auto border-t border-gray-300 text-center">
+                            <p className="text-sm text-gray-600">Posted by {query.userName}</p>
+                            <p className="text-sm text-gray-500">{new Date(query.createdAt).toLocaleString()}</p>
                         </div>
                     </div>
                 ))}
