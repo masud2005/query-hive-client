@@ -6,7 +6,10 @@ const Footer = () => {
             <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-2">
                 {/* Column 1 */}
                 <div className='text-gray-700'>
-                    <h4 className="text-3xl font-bold text-gray-800 mb-4">QueryHive</h4>
+                    <div className='flex items-center mb-5'>
+                        <img className='w-20' src="https://i.ibb.co.com/Xtg8XTf/download.png" alt="Logo..." />
+                        <h4 className="text-3xl font-bold text-gray-800 mb-4">QueryHive</h4>
+                    </div>
                     <p>
                         Your go-to platform for product recommendations and alternative solutions.
                         Collaborate, suggest, and make informed decisions effortlessly.
