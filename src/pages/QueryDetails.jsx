@@ -46,7 +46,7 @@ const QueryDetails = () => {
 
         axios.post('http://localhost:5000/recommendations', recommendationQuery)
             .then(res => {
-                console.log(res.data);
+                console.log(res.data); 
                 if (res.data.insertedId) {
                     // alert('Recommendation added successfully!');
                     setQuery(prevQuery => ({
@@ -199,6 +199,10 @@ const QueryDetails = () => {
                 <div className="bg-white shadow-lg rounded-lg p-6">
                     <h3 className="text-2xl font-semibold text-gray-800 mb-6 text-center">All Recommendations</h3>
                     <div className="space-y-6">
+                        {
+                            recommendations.length === 0 &&
+                            <p className="text-lg text-center text-red-500">No recommendations found for this query.</p>
+                        }
                         {recommendations.map((recommendation, index) => (
                             <div
                                 key={recommendation._id}
@@ -222,10 +226,6 @@ const QueryDetails = () => {
                                     <p className="text-gray-700 mt-2">
                                         <strong>Reason:</strong> {recommendation.recommendationReason}
                                     </p>
-                                    {/* <p className="text-gray-500 text-sm mt-2">
-                                        Recommended by <strong>{recommendation.recommenderName}</strong> on{' '}
-                                        {new Date(recommendation.createdAt).toLocaleDateString()}
-                                    </p> */}
                                     <p className="text-gray-500 text-sm mt-2">
                                         Recommended by <strong>{recommendation.recommenderName}</strong> on{' '}
                                         {new Date(recommendation.currentTime).toLocaleString()}
