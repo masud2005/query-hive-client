@@ -1,9 +1,10 @@
 import React from 'react';
+import RecentQueries from '../components/RecentQueries';
 
 const Home = () => {
     return (
         <div>
-            Home
+            <RecentQueries />
         </div>
     );
 };

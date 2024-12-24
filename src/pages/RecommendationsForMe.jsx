@@ -51,7 +51,7 @@ const RecommendationsForMe = () => {
             {
                 recommendations.length === 0 ?
                     <>
-                        <p className="text-2xl -mt-5 text-center text-red-500">No Recommendations Found.</p>
+                        <p className="text-2xl -mt-5 text-center text-red-500">No Recommendations Found For Me.</p>
                     </>
                     :
                     <>

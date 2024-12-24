@@ -7,7 +7,7 @@ const Queries = () => {
 
     return (
         <div className="p-4 md:p-6">
-            <h1 className="text-3xl font-bold text-center"><span className="text-indigo-600">Add a</span> <span className="text-teal-600">New Query</span></h1>
+            <h1 className="text-3xl font-bold text-center"><span className="text-indigo-600">All</span> <span className="text-teal-600">Queries</span></h1>
 
             {/* Queries Section */}
             <div className="mt-10 mb-5 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 container mx-auto">
@@ -18,7 +18,7 @@ const Queries = () => {
                             alt={query.productName}
                             className="w-full h-40 xl:h-52 object-fill rounded-t-lg mb-4"
                         />
-                        <h2 className="text-2xl font-bold mb-2 text-gray-800">{query.queryTitle}</h2>
+                        <h2 className="text-2xl font-bold mb-2 text-gray-800">{query.queryTitle}</h2>   
                         <p className="text-gray-700 mb-2"><span className="font-semibold">Product:</span> {query.productName}</p>
                         <p className="text-gray-600 text-sm mb-2">CreateAt: {new Date(query.createdAt).toLocaleString()}</p>
                         {/* Recommendation Count */}
