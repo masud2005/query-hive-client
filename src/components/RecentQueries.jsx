@@ -16,7 +16,7 @@ const RecentQueries = () => {
     }, []);
 
     return (
-        <div className="container mx-auto p-4 mt-10">
+        <div className="container mx-auto px-4 xl:px-0 mt-10">
             {/* Section Header */}
             <div className="text-center mb-12 px-5">
                 <h2 className="text-4xl font-extrabold text-gray-800 mb-4">
