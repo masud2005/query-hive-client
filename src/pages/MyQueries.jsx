@@ -3,20 +3,29 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../provider/AuthProvider";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const MyQueries = () => {
-    const {user} = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
     const [queries, setQueries] = useState([]);
+    const axiosSecure = useAxiosSecure();
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/queries/email/${user?.email}`)
-            .then((response) => {
-                setQueries(response.data);
+        // axios.get(`http://localhost:5000/queries/email/${user?.email}`, {withCredentials: true})
+        //     .then((response) => {
+        //         setQueries(response.data);
+        //     })
+        //     .catch((error) => {
+        //         console.error(error);
+        //     });
+        axiosSecure.get(`/queries/email/${user?.email}`)
+            .then(res => {
+                setQueries(res.data);
             })
-            .catch((error) => {
+            .catch(error => {
                 console.error(error);
-            });
-    }, []);
+            })
+    }, [user?.email]);
 
     const handleDelete = (id) => {
         Swal.fire({
@@ -75,7 +84,7 @@ const MyQueries = () => {
             {/* Queries Section */}
             <div className="mt-10 mb-5 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 container mx-auto">
                 {queries.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).map((query) => (
-                    <div key={query._id} className="bg-gradient-to-br from-teal-50 p-6 rounded-lg shadow-lg hover:shadow-xl transform transition duration-300 hover:scale-105 border">
+                    <div key={query._id} className="bg-gradient-to-br from-teal-50 p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 hover:from-indigo-100 border">
                         <img
                             src={query.productImageURL || "https://via.placeholder.com/300"}
                             alt={query.productName}

@@ -1,14 +1,18 @@
 import { useContext, useState } from 'react';
 import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
 import Swal from 'sweetalert2';
+import axios from 'axios';
 
 
 const Login = () => {
     const { user, userLogin, loginWithGoogle } = useContext(AuthContext);
     const [showPassword, setShowPassword] = useState(false);
-    console.log(user);
+    // console.log(user);
+    const location = useLocation()
+    const navigate = useNavigate();
+    console.log(location);
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -28,6 +32,7 @@ const Login = () => {
                         confirmButton: 'bg-teal-400 text-white'
                     }
                 })
+                navigate(location?.state ? location?.state : '/');
             })
             .catch(error => {
                 console.error(error);
@@ -49,8 +54,12 @@ const Login = () => {
                 Swal.fire({
                     icon: 'success',
                     title: 'Login Successful',
-                    text: `Welcome, ${result.user.displayName || 'User'}! You are now logged in.`
+                    text: `Welcome, ${result.user.displayName || 'User'}! You are now logged in.`,
+                    customClass: {
+                        confirmButton: 'bg-teal-400 text-white'
+                    }
                 })
+                navigate(location?.state ? location?.state : '/');
             })
             .catch(error => {
                 console.log(error);

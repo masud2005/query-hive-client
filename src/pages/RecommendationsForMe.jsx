@@ -1,46 +1,34 @@
 import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { AuthContext } from "../provider/AuthProvider";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const RecommendationsForMe = () => {
     const { user } = useContext(AuthContext);
     const [recommendations, setRecommendations] = useState([]);
+    const axiosSecure = useAxiosSecure();
 
     useEffect(() => {
         // Fetch recommendations for the user's queries
-        axios.get(`http://localhost:5000/recommendations/user/${user?.email}`)
+        // axios.get(`http://localhost:5000/recommendations/user/${user?.email}`, { withCredentials: true })
+        //     .then(res => {
+        //         setRecommendations(res.data);
+        //     })
+        //     .catch(err => {
+        //         console.error("Failed to fetch recommendations:", err);
+        //     });
+
+        axiosSecure.get(`/recommendations/user/${user?.email}`) 
             .then(res => {
                 setRecommendations(res.data);
             })
             .catch(err => {
                 console.error("Failed to fetch recommendations:", err);
             });
+
     }, [user?.email]);
 
     return (
-        // <div>
-        //     <h1>Recommendations For Me</h1>
-        //     <table border="1" style={{ width: "100%", textAlign: "left" }}>
-        //         <thead>
-        //             <tr>
-        //                 <th>Recommendation</th>
-        //                 <th>Recommender Name</th>
-        //                 <th>Query Title</th>
-        //                 <th>Created At</th>
-        //             </tr>
-        //         </thead>
-        //         <tbody>
-        //             {recommendations.map(recommend => (
-        //                 <tr key={recommend._id}>
-        //                     <td>{recommend.recommendedProductName}</td>
-        //                     <td>{recommend.recommenderName} {recommend.recommenderEmail}</td>
-        //                     <td>{recommend.queryTitle}</td>
-        //                     <td>{new Date(recommend.currentTime).toLocaleString()}</td>
-        //                 </tr>
-        //             ))}
-        //         </tbody>
-        //     </table>
-        // </div>
         <div className="container mx-auto my-10 p-2 md:p-5">
             {/* Page Heading */}
             <h1 className="text-3xl font-extrabold text-center text-teal-500 mb-12 -mt-7">

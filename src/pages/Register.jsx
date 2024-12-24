@@ -1,13 +1,15 @@
 import React, { useContext, useState } from 'react';
 import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
 import Swal from 'sweetalert2';
+import { nav } from 'framer-motion/client';
 
 const Register = () => {
     const { user, loginWithGoogle, createNewUser, updateProfileInfo } = useContext(AuthContext);
     const [showPassword, setShowPassword] = useState(false)
-    console.log(user);
+    // console.log(user);
+    const navigate = useNavigate();
 
     const handleRegister = (e) => {
         e.preventDefault();
@@ -44,6 +46,7 @@ const Register = () => {
                     }
                 });
                 updateProfileInfo(name, photo);
+                navigate('/');
             })
             .catch(error => {
                 console.error(error);
@@ -70,6 +73,7 @@ const Register = () => {
                         confirmButton: 'bg-teal-400 text-white'
                     }
                 });
+                navigate('/');
             })
             .catch(error => {
                 console.error(error);

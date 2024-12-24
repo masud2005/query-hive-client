@@ -3,35 +3,34 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import useAxiosSecure from '../hooks/useAxiosSecure';
 
 const MyRecommendations = () => {
     const { user } = useContext(AuthContext);
     const [myRecommendations, setMyRecommendations] = useState([]);
-    console.log(myRecommendations);
+    // console.log(myRecommendations);
+    const axiosSecure = useAxiosSecure();
 
     useEffect(() => {
         // Fetch my recommendations
-        axios.get(`http://localhost:5000/recommendations/email/${user?.email}`)
+        // axios.get(`http://localhost:5000/recommendations/email/${user?.email}`, { withCredentials: true })
+        //     .then(res => {
+        //         setMyRecommendations(res.data);
+        //     })
+        //     .catch(error => {
+        //         console.error(error);
+        //     });
+
+        axiosSecure.get(`/recommendations/email/${user?.email}`)
             .then(res => {
                 setMyRecommendations(res.data);
             })
             .catch(error => {
                 console.error(error);
             });
-    }, []);
 
-    // if (myRecommendations.length === 0) {
-    //     return (
-    //         <div className="container mx-auto my-10 p-2 md:p-5">
-    //             <h1 className="text-3xl font-extrabold text-center text-indigo-500 mb-12 -mt-7">
-    //                 My <span className="text-teal-500">Recommendations</span>
-    //             </h1>
-    //             <div className="bg-gradient-to-r from-teal-300 to-indigo-300 text-white py-8 px-6 w-full text-center rounded-lg shadow-xl">
-    //                 <h2 className="text-2xl font-bold">No Recommendations Found</h2>
-    //             </div>
-    //         </div>
-    //     );
-    // }
+    }, [user?.email]);
+
 
     const handleDeleteRecommend = (id) => {
         console.log('Delete Recommendation:', id);
