@@ -3,6 +3,9 @@ import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { use } from "react";
+import useAxiosSecure from "../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const QueryDetails = () => {
     const { user } = useContext(AuthContext);
@@ -10,9 +13,10 @@ const QueryDetails = () => {
     const [query, setQuery] = useState(loaderData);
     const [recommendations, setRecommendations] = useState([]);
     console.log(query);
+    const axiosSecure = useAxiosSecure();
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/queries/${query._id}/recommendations`)
+        axiosSecure.get(`/queries/${query._id}/recommendations`)
             .then(res => {
                 setRecommendations(res.data);
             })
@@ -28,6 +32,24 @@ const QueryDetails = () => {
                 });
             });
     }, []);
+
+    // useEffect(() => {
+    //     axios.get(`http://localhost:5000/queries/${query._id}/recommendations`)
+    //         .then(res => {
+    //             setRecommendations(res.data);
+    //         })
+    //         .catch(error => {
+    //             console.error(error);
+    //             Swal.fire({
+    //                 icon: 'error',
+    //                 title: 'Failed to Fetch Recommendations',
+    //                 text: error.code,
+    //                 customClass: {
+    //                     confirmButton: 'bg-red-400 text-white'
+    //                 }
+    //             });
+    //         });
+    // }, []);
 
     const handleRecommendation = (e) => {
         e.preventDefault();
@@ -67,6 +89,7 @@ const QueryDetails = () => {
                             confirmButton: 'bg-teal-400 text-white'
                         }
                     })
+                    e.target.reset();
                 }
             })
             .catch(error => {
@@ -84,6 +107,11 @@ const QueryDetails = () => {
 
     return (
         <div className="container mx-auto py-6 my-10">
+
+            <Helmet>
+                <title>Query Details | Query Hive</title>
+            </Helmet>
+
             {/* Main Section */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch px-2">
                 {/* User Information Section */}

@@ -3,6 +3,7 @@ import { AuthContext } from "../provider/AuthProvider";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const AddQuery = () => {
 
@@ -56,6 +57,10 @@ const AddQuery = () => {
 
     return (
         <div className="flex flex-col items-center px-2 my-10">
+
+            <Helmet>
+                <title>Add Query | Query Hive</title>
+            </Helmet>
                 
             <h1 className="text-3xl font-bold"><span className="text-indigo-600">Add a</span> <span className="text-teal-600">New Query</span></h1>
 
@@ -93,7 +98,7 @@ const AddQuery = () => {
                         Product Image URL
                     </label>
                     <input
-                        type="text"
+                        type="url"
                         name="productImageURL"
                         placeholder="Enter product image URL"
                         className="input input-bordered w-full px-4 py-2 rounded-md border-gray-300 focus:outline-none focus:ring-1 focus:ring-teal-300 transition"

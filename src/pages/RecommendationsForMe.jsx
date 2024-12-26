@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { AuthContext } from "../provider/AuthProvider";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const RecommendationsForMe = () => {
     const { user } = useContext(AuthContext);
@@ -30,6 +31,11 @@ const RecommendationsForMe = () => {
 
     return (
         <div className="container mx-auto my-10 p-2 md:p-5">
+
+            <Helmet>
+                <title>Recommendations For Me | Query Hive</title>
+            </Helmet>
+
             {/* Page Heading */}
             <h1 className="text-3xl font-extrabold text-center text-teal-500 mb-12 -mt-7">
             Recommendations<span className="text-indigo-500"> For Me</span>

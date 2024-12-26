@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
 import Swal from 'sweetalert2';
 import { nav } from 'framer-motion/client';
+import { Helmet } from 'react-helmet-async';
 
 const Register = () => {
     const { user, loginWithGoogle, createNewUser, updateProfileInfo } = useContext(AuthContext);
@@ -90,6 +91,10 @@ const Register = () => {
 
     return (
         <div className="flex items-center justify-center my-10 px-2">
+
+            <Helmet>
+                <title>Register | Query Hive</title>
+            </Helmet>
 
             <div className="bg-white shadow-xl rounded-lg w-full max-w-xl px-5 md:px-8 py-10 border ">
                 <h1 className="text-4xl font-bold text-center bg-gradient-to-r from-indigo-500 to-teal-500 text-transparent bg-clip-text mb-6 p-1">

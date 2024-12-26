@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link, useLoaderData } from 'react-router-dom';
 
 const Queries = () => {
@@ -15,6 +16,11 @@ const Queries = () => {
 
     return (
         <div className="p-2 md:p-6">
+
+            <Helmet>
+                <title>All Queries | Query Hive</title>
+            </Helmet>
+
             <h1 className="text-3xl font-bold text-center"><span className="text-indigo-600">All</span> <span className="text-teal-600">Queries</span></h1>
 
             {/* Search Field */}

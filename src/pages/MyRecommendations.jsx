@@ -4,6 +4,7 @@ import { AuthContext } from '../provider/AuthProvider';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../hooks/useAxiosSecure';
+import { Helmet } from 'react-helmet-async';
 
 const MyRecommendations = () => {
     const { user } = useContext(AuthContext);
@@ -71,6 +72,11 @@ const MyRecommendations = () => {
 
     return (
         <div className="container mx-auto my-10 p-2 md:p-5">
+
+            <Helmet>
+                <title>My Recommendations | Query Hive</title>
+            </Helmet>
+
             {/* Page Heading */}
             <h1 className="text-3xl font-extrabold text-center text-indigo-500 mb-12 -mt-7">
                 My <span className="text-teal-500">Recommendations</span>

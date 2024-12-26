@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../provider/AuthProvider";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const MyQueries = () => {
     const { user } = useContext(AuthContext);
@@ -65,6 +66,11 @@ const MyQueries = () => {
 
     return (
         <div className="p-4 md:p-6">
+
+            <Helmet>
+                <title>My Queries | Query Hive</title>
+            </Helmet>
+
             {/* Banner Section */}
             <div className="bg-gradient-to-r from-teal-300 via-blue-400 to-indigo-300 text-white py-8 px-6 w-full text-center rounded-lg shadow-xl">
                 {
