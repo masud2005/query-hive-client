@@ -1,4 +1,7 @@
+
 import React, { useState } from "react";
+import LottieFAQ from '../assets/lottie/FAQ.json';
+import Lottie from "lottie-react";
 
 const FAQ = () => {
     // Set the first question (index 0) as active by default
@@ -19,11 +22,6 @@ const FAQ = () => {
             question: "Can I recommend products or services?",
             answer:
                 "Yes, you can recommend products or services by responding to queries or sharing your suggestions in the recommendation section.",
-        },
-        {
-            question: "How are the recommendations ranked?",
-            answer:
-                "Recommendations are ranked based on user votes and engagement. The more helpful a recommendation is, the higher it ranks.",
         },
         {
             question: "Is my personal information secure on QueryHive?",
@@ -60,34 +58,37 @@ const FAQ = () => {
             </div>
 
             {/* FAQ Items */}
-            <div className="space-y-6">
-                {faqs.map((faq, index) => (
-                    <div
-                        key={index}
-                        className={`border overflow-hidden transition-shadow duration-300 ${
-                            activeIndex === index ? "shadow-lg bg-gradient-to-r from-indigo-500 to-teal-500 p-[1px]" : "border-gray-300"
-                        }`}
-                    >
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 items-center">
+                <div className="col-span-1">  
+                    <Lottie className="h-[350px] md:h-[400px] lg:h-[600px]" animationData={LottieFAQ} />
+                </div>
+                <div className="col-span-2 space-y-6">
+                    {faqs.map((faq, index) => (
                         <div
-                            onClick={() => toggleFAQ(index)}
-                            className="flex justify-between items-center bg-gray-100 p-5 cursor-pointer"
-                        >
-                            <h3 className="text-lg font-medium text-gray-800">{faq.question}</h3>
-                            <span
-                                className={`text-2xl font-bold text-indigo-500 transform transition-transform ${
-                                    activeIndex === index ? "rotate-180" : "rotate-0"
+                            key={index}
+                            className={`border overflow-hidden transition-shadow duration-300 ${activeIndex === index ? "shadow-lg bg-gradient-to-r from-indigo-500 to-teal-500 p-[1px]" : "border-gray-300"
                                 }`}
+                        >
+                            <div
+                                onClick={() => toggleFAQ(index)}
+                                className="flex justify-between items-center bg-gray-100 p-5 cursor-pointer"
                             >
-                                {activeIndex === index ? "−" : "+"}
-                            </span>
-                        </div>
-                        {activeIndex === index && (
-                            <div className="bg-white px-5 py-4 text-gray-700">
-                                <p>{faq.answer}</p>
+                                <h3 className="text-lg font-medium text-gray-800">{faq.question}</h3>
+                                <span
+                                    className={`text-2xl font-bold text-indigo-500 transform transition-transform ${activeIndex === index ? "rotate-180" : "rotate-0"
+                                        }`}
+                                >
+                                    {activeIndex === index ? "−" : "+"}
+                                </span>
                             </div>
-                        )}
-                    </div>
-                ))}
+                            {activeIndex === index && (
+                                <div className="bg-white px-5 py-4 text-gray-700">
+                                    <p>{faq.answer}</p>
+                                </div>
+                            )}
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     );

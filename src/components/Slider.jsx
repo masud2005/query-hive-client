@@ -10,7 +10,7 @@ import "swiper/css/pagination";
 
 const Slider = () => {
     return (
-        <div className="container px-2 xl:px-0 mx-auto my-16">
+        <div className="container px-2 xl:px-0 mx-auto my-10">
             <Swiper
                 modules={[Navigation, Pagination, Autoplay]}
                 navigation
@@ -23,7 +23,7 @@ const Slider = () => {
             >
                 {/* Slide 1: Product Recommendations */}
                 <SwiperSlide>
-                    <div className="relative h-[300px] md:h-[450px] xl:h-[550px] flex items-center justify-center">
+                    <div className="relative h-[300px] md:h-[450px] xl:h-[550px] 2xl:h-[600px] flex items-center justify-center">
                         <img
                             src="https://wallpapers.com/images/hd/question-mark-pictures-wtuxsfnncxyx6s63.jpg"
                             alt="Add a Query"
@@ -46,7 +46,7 @@ const Slider = () => {
 
                 {/* Slide 2: Add a Query */}
                 <SwiperSlide>
-                    <div className="relative h-[300px] md:h-[450px] xl:h-[550px] flex items-center justify-center">
+                    <div className="relative h-[300px] md:h-[450px] xl:h-[550px] 2xl:h-[600px] flex items-center justify-center">
                         <img
                             src="https://i.ibb.co.com/Phhwxrc/pngtree-online-product-recommendations-3d-illustration-of-suggested-products-picture-image-3950780.png"
                             alt="Product Recommendations"
@@ -68,7 +68,7 @@ const Slider = () => {
 
                 {/* Slide 3: Explore Recommendations */}
                 <SwiperSlide>
-                    <div className="relative h-[300px] md:h-[450px] xl:h-[550px] flex items-center justify-center">
+                    <div className="relative h-[300px] md:h-[450px] xl:h-[550px] 2xl:h-[600px] flex items-center justify-center">
                         <img
                             src="https://c0.wallpaperflare.com/preview/80/452/981/advice-answer-ask-assistance.jpg"
                             alt="Explore Recommendations"
