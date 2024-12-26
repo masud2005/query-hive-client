@@ -34,7 +34,7 @@ const QueryDetails = () => {
     }, []);
 
     // useEffect(() => {
-    //     axios.get(`http://localhost:5000/queries/${query._id}/recommendations`)
+    //     axios.get(`https://ask-and-recommend-server.vercel.app/queries/${query._id}/recommendations`)
     //         .then(res => {
     //             setRecommendations(res.data);
     //         })
@@ -66,7 +66,7 @@ const QueryDetails = () => {
         const recommendationQuery = { ...initialData, queryId, queryTitle, productName, userEmail, userName, recommenderEmail, recommenderName, currentTime };
         // console.log(recommendationQuery);
 
-        axios.post('http://localhost:5000/recommendations', recommendationQuery)
+        axios.post('https://ask-and-recommend-server.vercel.app/recommendations', recommendationQuery)
             .then(res => {
                 // console.log(res.data);
                 if (res.data.insertedId) {

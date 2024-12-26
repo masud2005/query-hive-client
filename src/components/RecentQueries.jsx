@@ -6,7 +6,7 @@ const RecentQueries = () => {
 
     useEffect(() => {
         // API call to get recent queries
-        axios.get('http://localhost:5000/recent-queries')
+        axios.get('https://ask-and-recommend-server.vercel.app/recent-queries')
             .then(response => {
                 setQueries(response.data);
             })

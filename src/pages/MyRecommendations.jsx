@@ -14,7 +14,7 @@ const MyRecommendations = () => {
 
     useEffect(() => {
         // Fetch my recommendations
-        // axios.get(`http://localhost:5000/recommendations/email/${user?.email}`, { withCredentials: true })
+        // axios.get(`https://ask-and-recommend-server.vercel.app/recommendations/email/${user?.email}`, { withCredentials: true })
         //     .then(res => {
         //         setMyRecommendations(res.data);
         //     })
@@ -45,7 +45,7 @@ const MyRecommendations = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:5000/recommendations/${id}`)
+                axios.delete(`https://ask-and-recommend-server.vercel.app/recommendations/${id}`)
                     .then(res => {
                         if (res.data.deletedCount === 1) {
                             Swal.fire({

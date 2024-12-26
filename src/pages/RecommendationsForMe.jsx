@@ -11,7 +11,7 @@ const RecommendationsForMe = () => {
 
     useEffect(() => {
         // Fetch recommendations for the user's queries
-        // axios.get(`http://localhost:5000/recommendations/user/${user?.email}`, { withCredentials: true })
+        // axios.get(`https://ask-and-recommend-server.vercel.app/recommendations/user/${user?.email}`, { withCredentials: true })
         //     .then(res => {
         //         setRecommendations(res.data);
         //     })

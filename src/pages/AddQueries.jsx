@@ -26,7 +26,7 @@ const AddQuery = () => {
         }
         // console.log(queryData);
 
-        axios.post('http://localhost:5000/queries', queryData)
+        axios.post('https://ask-and-recommend-server.vercel.app/queries', queryData)
             .then(res => {
                 // console.log(res.data);
                 if (res.data.insertedId) {

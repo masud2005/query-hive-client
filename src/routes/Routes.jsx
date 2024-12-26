@@ -26,7 +26,7 @@ const router = createBrowserRouter([
             {
                 path: '/queries',
                 element: <Queries />,
-                loader: () => fetch('http://localhost:5000/queries')
+                loader: () => fetch('https://ask-and-recommend-server.vercel.app/queries')
             },
             {
                 path: '/recommendations-for-me',
@@ -51,12 +51,12 @@ const router = createBrowserRouter([
                 element: <PrivateRoute>
                     <QueryDetails />
                 </PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/queries/${params.id}`)
+                loader: ({ params }) => fetch(`https://ask-and-recommend-server.vercel.app/queries/${params.id}`)
             },
             {
                 path: '/update-query/:id',
                 element: <UpdateQuery />,
-                loader: ({ params }) => fetch(`http://localhost:5000/queries/${params.id}`)
+                loader: ({ params }) => fetch(`https://ask-and-recommend-server.vercel.app/queries/${params.id}`)
             },
             {
                 path: '/my-recommendations',

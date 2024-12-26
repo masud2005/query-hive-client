@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 import { AuthContext } from '../provider/AuthProvider';
 
 const axiosInstance = axios.create({
-    baseURL: 'http://localhost:5000',
+    baseURL: 'https://ask-and-recommend-server.vercel.app',
     withCredentials: true,
 });
 

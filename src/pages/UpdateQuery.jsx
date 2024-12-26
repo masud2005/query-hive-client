@@ -19,7 +19,7 @@ const UpdateQuery = () => {
         const updatedDateTime = new Date().toISOString();
         const updateQuery = {...initialData, updateTime: updatedDateTime};
 
-        axios.patch(`http://localhost:5000/queries/${loaderData._id}`, updateQuery)
+        axios.patch(`https://ask-and-recommend-server.vercel.app/queries/${loaderData._id}`, updateQuery)
             .then(res => {
                 // console.log(res.data);
                 if (res.data.modifiedCount > 0) {
