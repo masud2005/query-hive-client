@@ -34,7 +34,7 @@ const MyRecommendations = () => {
 
 
     const handleDeleteRecommend = (id) => {
-        console.log('Delete Recommendation:', id);
+        // console.log('Delete Recommendation:', id);
         Swal.fire({
             title: "Are you sure?",
             text: "Once deleted, you won't be able to revert this action!",

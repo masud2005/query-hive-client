@@ -1,8 +1,72 @@
-# React + Vite
+# QueryHive
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+QueryHive is a web application designed to facilitate the submission, management, and recommendation of user-generated queries related to various products. Users can log in, create, update, and delete their queries, as well as recommend queries submitted by others. The app also features Google-based authentication for a seamless user experience.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Purpose
+The purpose of QueryHive is to:
+- Enable users to voice their concerns and raise queries about specific products.
+- Provide a platform for community-driven recommendations on queries.
+- Enhance user experience with modern authentication and secure API interactions.
+
+---
+
+## Live URL
+
+[Live Demo](http://localhost:5000)
+
+---
+
+## Key Features
+- **Authentication:**
+  - Email/Password-based registration and login.
+  - Google login for quick access.
+  - JWT-based secure API requests with HTTP-only cookies.
+- **Query Management:**
+  - Create, update, and delete queries.
+  - View all queries or fetch specific queries by ID or email.
+  - Retrieve the 6 most recent queries.
+- **Recommendations:**
+  - Recommend queries and track counts.
+  - Fetch all recommendations by query or user.
+  - Add and remove recommendations dynamically.
+- **Protected Routes:**
+  - Routes secured using React context and private routes.
+- **Responsive Design:**
+  - A responsive layout powered by Tailwind CSS and DaisyUI.
+
+---
+
+## Technologies Used
+### Frontend:
+- **React**: A JavaScript library for building user interfaces.
+- **React Router Dom**: For navigation and routing.
+- **Axios**: For API communication.
+- **Framer Motion**: Animation library for enhancing UI transitions.
+- **Tailwind CSS & DaisyUI**: Styling framework for fast and responsive design.
+- **SweetAlert2**: For customizable alerts.
+
+### Backend:
+- **Node.js**: JavaScript runtime for the server-side application.
+- **Express.js**: Web application framework.
+- **MongoDB**: NoSQL database for data storage.
+- **JWT**: For secure token-based authentication.
+- **Cookie Parser**: Middleware to parse cookies.
+
+### Firebase:
+- Authentication with Email/Password and Google login.
+
+---
+
+## NPM Packages Used
+- axios: For API requests.
+- firebase: For authentication.
+- framer-motion: For animations.
+- react: For UI rendering.
+- react-router-dom: For routing.
+- react-helmet-async: For managing document head.
+- react-icons: For icons.
+- react-tooltip: For tooltips.
+- sweetalert2: For alerts.
+- swiper: For interactive sliders.

@@ -13,18 +13,18 @@ const Login = () => {
     // console.log(user);
     const location = useLocation()
     const navigate = useNavigate();
-    console.log(location);
+    // console.log(location);
 
     const handleLogin = (e) => {
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
+        // console.log(email, password);
 
         userLogin(email, password)
             .then(result => {
-                console.log(result);
+                // console.log(result);
                 Swal.fire({
                     icon: 'success',
                     title: 'Login Successful',
@@ -51,7 +51,7 @@ const Login = () => {
     const handleLoginWithGoogle = () => {
         loginWithGoogle()
             .then(result => {
-                console.log(result);
+                // console.log(result);
                 Swal.fire({
                     icon: 'success',
                     title: 'Login Successful',
@@ -63,7 +63,7 @@ const Login = () => {
                 navigate(location?.state ? location?.state : '/');
             })
             .catch(error => {
-                console.log(error);
+                // console.log(error);
                 Swal.fire({
                     icon: 'error',
                     title: 'Login Failed',

@@ -19,7 +19,7 @@ const Register = () => {
         const photo = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, photo, email, password);
+        // console.log(name, photo, email, password);
 
         // Password Validation
         const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
@@ -37,7 +37,7 @@ const Register = () => {
 
         createNewUser(email, password)
             .then(result => {
-                console.log(result);
+                // console.log(result);
                 Swal.fire({
                     icon: 'success',
                     title: 'Registration Successful',
@@ -50,7 +50,7 @@ const Register = () => {
                 navigate('/');
             })
             .catch(error => {
-                console.error(error);
+                // console.error(error);
                 Swal.fire({
                     icon: 'error',
                     title: 'Registration Failed',
@@ -65,7 +65,7 @@ const Register = () => {
     const handleLoginWithGoogle = () => {
         loginWithGoogle()
             .then(result => {
-                console.log(result);
+                // console.log(result);
                 Swal.fire({
                     icon: 'success',
                     title: 'Registration Successful',

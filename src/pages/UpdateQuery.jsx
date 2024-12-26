@@ -21,7 +21,7 @@ const UpdateQuery = () => {
 
         axios.patch(`http://localhost:5000/queries/${loaderData._id}`, updateQuery)
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 if (res.data.modifiedCount > 0) {
                     Swal.fire({
                         icon: 'success',

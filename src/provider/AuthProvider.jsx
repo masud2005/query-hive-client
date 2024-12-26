@@ -9,7 +9,7 @@ const AuthProvider = ({ children }) => {
     const provider = new GoogleAuthProvider();
     const [loading, setLoading] = useState(true);
     const [user, setUser] = useState(null);
-    console.log(user);
+    // console.log(user);
 
 
     // Register User
@@ -45,14 +45,14 @@ const AuthProvider = ({ children }) => {
                 // console.log(user);
                 axios.post('http://localhost:5000/jwt', user, { withCredentials: true })
                     .then(res => {
-                        console.log("Login Token", res.data);
+                        // console.log("Login Token", res.data);
                         setLoading(false);
                     })
             }
             else {
                 axios.post('http://localhost:5000/logout', {}, { withCredentials: true })
                     .then(res => {
-                        console.log("Logout Token", res.data);
+                        // console.log("Logout Token", res.data);
                         setLoading(false);
                     })
             }

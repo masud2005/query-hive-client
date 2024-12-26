@@ -10,7 +10,7 @@ const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
 
     const handleLogout = () => {
-        console.log('Logout');
+        // console.log('Logout');
         userLogout()
             .then(() => {
                 Swal.fire({

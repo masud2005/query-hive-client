@@ -12,7 +12,7 @@ const QueryDetails = () => {
     const loaderData = useLoaderData();
     const [query, setQuery] = useState(loaderData);
     const [recommendations, setRecommendations] = useState([]);
-    console.log(query);
+    // console.log(query);
     const axiosSecure = useAxiosSecure();
 
     useEffect(() => {
@@ -21,7 +21,7 @@ const QueryDetails = () => {
                 setRecommendations(res.data);
             })
             .catch(error => {
-                console.error(error);
+                // console.error(error);
                 Swal.fire({
                     icon: 'error',
                     title: 'Failed to Fetch Recommendations',
@@ -68,7 +68,7 @@ const QueryDetails = () => {
 
         axios.post('http://localhost:5000/recommendations', recommendationQuery)
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 if (res.data.insertedId) {
                     // alert('Recommendation added successfully!');
                     setQuery(prevQuery => ({
