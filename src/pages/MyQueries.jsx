@@ -88,8 +88,87 @@ const MyQueries = () => {
             </div>
 
             {/* Queries Section */}
+            <div className="overflow-x-auto container mx-auto">
+                <table className="table">
+                    {/* head */}
+                    <thead>
+                        <tr className="text-base">
+                            <th>Sl No</th>
+                            <th>Name</th>
+                            <th>CreateAt</th>
+                            <th className="text-center">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {queries.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).map((query, idx) => (
+                            <tr>
+                                <th>
+                                    {idx + 1}
+                                </th>
+                                <td>
+                                    <div className="flex items-center gap-3">
+                                        <div className="avatar">
+                                            <div className="mask mask-squircle h-12 w-12">
+                                                <img
+                                                    src={query.productImageURL || "https://via.placeholder.com/300"}
+                                                    alt={query.productName} />
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div className="font-bold">{query.productName}</div>
+                                            {/* <div className="text-sm opacity-50">United States</div> */}
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    {new Date(query.createdAt).toLocaleString()}
+                                </td>
+                                <td className="space-x-2 text-center">
+                                    <Link to={`/details/${query._id}`} className="flex-1 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 text-center whitespace-nowrap">
+                                        View Details
+                                    </Link>
+                                    <Link to={`/update-query/${query._id}`} className="flex-1 bg-teal-500 text-white py-2 px-4 rounded-lg hover:bg-teal-600 text-center ">
+                                        Update
+                                    </Link>
+                                    <button
+                                        onClick={() => handleDelete(query._id)}
+                                        className="flex-1 bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600"
+                                    >
+                                        Delete
+                                    </button>
+                                </td>
+                            </tr>
+                            // <div key={query._id} className="bg-gradient-to-br from-teal-50 p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 hover:from-indigo-100 border">
+                            //     <img
+                            //         src={query.productImageURL || "https://via.placeholder.com/300"}
+                            //         alt={query.productName}
+                            //         className="w-full h-40 xl:h-52 object-fill rounded-t-lg mb-4"
+                            //     />
+                            //     <h2 className="text-2xl font-bold mb-2 text-gray-800">{query.queryTitle}</h2>
+                            //     <p className="text-gray-700 mb-4"><span className="font-semibold">Product:</span> {query.productName}</p>
+                            //     <p className="text-gray-600 text-sm mb-4">CreateAt: {new Date(query.createdAt).toLocaleString()}</p>
+                            //     <div className="flex gap-3 flex-wrap">
+                            //         <Link to={`/details/${query._id}`} className="flex-1 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 text-center whitespace-nowrap">
+                            //             View Details
+                            //         </Link>
+                            //         <Link to={`/update-query/${query._id}`} className="flex-1 bg-teal-500 text-white py-2 px-4 rounded-lg hover:bg-teal-600 text-center ">
+                            //             Update
+                            //         </Link>
+                            //         <button
+                            //             onClick={() => handleDelete(query._id)}
+                            //             className="flex-1 bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600"
+                            //         >
+                            //             Delete
+                            //         </button>
+                            //     </div>
+                            // </div>
+                        ))}
+                    </tbody>
+                </table >
+            </div >
             <div className="mt-10 mb-5 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 container mx-auto">
-                {queries.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).map((query) => (
+
+                {/* {queries.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).map((query) => (
                     <div key={query._id} className="bg-gradient-to-br from-teal-50 p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 hover:from-indigo-100 border">
                         <img
                             src={query.productImageURL || "https://via.placeholder.com/300"}
@@ -114,9 +193,9 @@ const MyQueries = () => {
                             </button>
                         </div>
                     </div>
-                ))}
+                ))} */}
             </div>
-        </div>
+        </div >
     );
 };
 
