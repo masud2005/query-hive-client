@@ -1,13 +1,15 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { IoMdClose, IoMdMenu } from "react-icons/io";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
 import { Tooltip } from "react-tooltip";
+import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
 
 const Navbar = () => {
     const { user, userLogout } = useContext(AuthContext);
     const [menuOpen, setMenuOpen] = useState(false);
+    const [isDarkMode, setIsDarkMode] = useState(false)
 
     const handleLogout = () => {
         // console.log('Logout');
@@ -32,6 +34,26 @@ const Navbar = () => {
                     }
                 });
             })
+    };
+
+    // Theme Loaded localStorage 
+    useEffect(() => {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            setIsDarkMode(true);
+            document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+            setIsDarkMode(false);
+            document.documentElement.setAttribute('data-theme', 'light');
+        }
+    }, []);
+
+    // Theme Changes
+    const toggleTheme = () => {
+        const newTheme = !isDarkMode ? 'dark' : 'light';
+        setIsDarkMode(!isDarkMode);
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
     };
 
     return (
@@ -59,6 +81,16 @@ const Navbar = () => {
 
                 {/* Right Section: Login/Logout Buttons */}
                 <div className="hidden xl:flex gap-3 items-center">
+                    <button
+                        onClick={toggleTheme}
+                        className={`w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-700 shadow-md transition-transform transform hover:scale-110`}
+                    >
+                        {isDarkMode ? (
+                            <MdOutlineLightMode size={24} />
+                        ) : (
+                            <MdOutlineDarkMode size={24} />
+                        )}
+                    </button>
                     <div className='flex gap-8 items-center'>
                         {
                             user ?
@@ -90,6 +122,16 @@ const Navbar = () => {
             />
 
             {/* Mobile Menu */}
+            <button
+                onClick={toggleTheme}
+                className={`w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-700 shadow-md transition-transform transform hover:scale-110 absolute top-6 right-14 xl:hidden`}
+            >
+                {isDarkMode ? (
+                    <MdOutlineLightMode size={24} />
+                ) : (
+                    <MdOutlineDarkMode size={24} />
+                )}
+            </button>
             <div className={`${menuOpen ? 'left-0' : '-left-[100%]'} absolute duration-500 w-full bg-gray-50/95`}>
                 <div className={`flex-col xl:hidden gap-4 py-4 px-4`}>
                     <NavLink to="/" className={({ isActive }) => isActive ? 'block text-lg font-semibold border-b-2 border-indigo-600 text-teal-600' : 'block text-base hover:text-teal-600 pt-2'} onClick={() => setMenuOpen(false)}>Home</NavLink>

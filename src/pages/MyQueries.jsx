@@ -101,7 +101,7 @@ const MyQueries = () => {
                     </thead>
                     <tbody>
                         {queries.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).map((query, idx) => (
-                            <tr>
+                            <tr key={query._id}>
                                 <th>
                                     {idx + 1}
                                 </th>
