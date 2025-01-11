@@ -12,6 +12,7 @@ import AddQuery from "../pages/AddQueries";
 import QueryDetails from "../pages/queryDetails";
 import UpdateQuery from "../pages/UpdateQuery";
 import ErrorPage from "../pages/ErrorPage";
+import AboutUs from "../pages/AboutUs";
 
 const router = createBrowserRouter([
     {
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
                 element: <PrivateRoute>
                     <MyRecommendations />
                 </PrivateRoute>
+            },
+            {
+                path: '/about-us',
+                element: <AboutUs />
             },
             {
                 path: '/login',
