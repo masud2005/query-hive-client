@@ -13,8 +13,8 @@ const Home = () => {
             </Helmet>
             <Slider />
             <RecentQueries />
-            <FAQ />
             <Testimonials />
+            <FAQ />
         </div>
     );
 };

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const RecentQueries = () => {
     const [queries, setQueries] = useState([]);
@@ -26,7 +27,7 @@ const RecentQueries = () => {
                     Explore the recent product-related queries, including detailed descriptions, reasons, and recommendations.
                 </p>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                 {queries.map(query => (
                     <div
                         key={query._id}
@@ -50,8 +51,11 @@ const RecentQueries = () => {
                         </div>
                         {/* User Info */}
                         <div className="p-4 bg-gray-100 mt-auto border-t border-gray-300 text-center">
-                            <p className="text-sm text-gray-600">Posted by {query.userName}</p>
-                            <p className="text-sm text-gray-500">{new Date(query.createdAt).toLocaleString()}</p>
+                            {/* <p className="text-sm text-gray-600">Posted by {query.userName}</p>
+                            <p className="text-sm text-gray-500">{new Date(query.createdAt).toLocaleString()}</p> */}
+                            <Link to={`/details/${query._id}`} className="flex-1 bg-teal-500 text-white py-2 px-4 rounded-lg hover:bg-teal-600 text-center whitespace-nowrap">
+                                View Details
+                            </Link>
                         </div>
                     </div>
                 ))}

@@ -43,7 +43,7 @@ const Navbar = () => {
                 </div>
 
                 {/* Center Section: Navigation Links */}
-                <div className="hidden lg:flex items-center gap-6">
+                <div className="hidden xl:flex items-center gap-6 ">
                     <NavLink to="/" className={({ isActive }) => isActive ? 'text-lg font-semibold border-b-2 border-indigo-600 text-teal-600' : 'text-base hover:text-indigo-600'}>Home</NavLink>
                     <NavLink to="/queries" className={({ isActive }) => isActive ? 'text-lg font-semibold border-b-2 border-indigo-600 text-teal-600' : 'text-base hover:text-indigo-600'}>Queries</NavLink>
                     {
@@ -54,10 +54,11 @@ const Navbar = () => {
                         </>
                     }
                     <NavLink to="/about-us" className={({ isActive }) => isActive ? 'text-lg font-semibold border-b-2 border-indigo-600 text-teal-600' : 'text-base hover:text-indigo-600'}>About Us</NavLink>
+                    <NavLink to="/contact-us" className={({ isActive }) => isActive ? 'text-lg font-semibold border-b-2 border-indigo-600 text-teal-600' : 'text-base hover:text-indigo-600'}>Contact Us</NavLink>
                 </div>
 
                 {/* Right Section: Login/Logout Buttons */}
-                <div className="hidden lg:flex gap-3 items-center">
+                <div className="hidden xl:flex gap-3 items-center">
                     <div className='flex gap-8 items-center'>
                         {
                             user ?
@@ -74,7 +75,7 @@ const Navbar = () => {
                 </div>
 
                 {/* Hamburger Menu for Mobile */}
-                <div onClick={() => setMenuOpen(!menuOpen)} className="lg:hidden bg-gradient-to-r from-indigo-300 to-teal-300 p-2 rounded-md text-2xl cursor-pointer">
+                <div onClick={() => setMenuOpen(!menuOpen)} className="xl:hidden bg-gradient-to-r from-indigo-300 to-teal-300 p-2 rounded-md text-2xl cursor-pointer">
                     {menuOpen ? <IoMdClose /> : <IoMdMenu />}
                 </div>
             </div>
@@ -90,7 +91,7 @@ const Navbar = () => {
 
             {/* Mobile Menu */}
             <div className={`${menuOpen ? 'left-0' : '-left-[100%]'} absolute duration-500 w-full bg-gray-50/95`}>
-                <div className={`flex-col lg:hidden gap-4 py-4 px-4`}>
+                <div className={`flex-col xl:hidden gap-4 py-4 px-4`}>
                     <NavLink to="/" className={({ isActive }) => isActive ? 'block text-lg font-semibold border-b-2 border-indigo-600 text-teal-600' : 'block text-base hover:text-teal-600 pt-2'} onClick={() => setMenuOpen(false)}>Home</NavLink>
                     <NavLink to="/queries" className={({ isActive }) => isActive ? 'block text-lg font-semibold border-b-2 border-indigo-600 text-teal-600' : 'block text-base hover:text-teal-600 pt-2'} onClick={() => setMenuOpen(false)}>Queries</NavLink>
                     {
@@ -101,7 +102,8 @@ const Navbar = () => {
                         </>
                     }
                     <NavLink to="/about-us" className={({ isActive }) => isActive ? 'block text-lg font-semibold border-b-2 border-indigo-600 text-teal-600' : 'block text-base hover:text-teal-600 pt-2'} onClick={() => setMenuOpen(false)}>About Us</NavLink>
-                    
+                    <NavLink to="/contact-us" className={({ isActive }) => isActive ? 'block text-lg font-semibold border-b-2 border-indigo-600 text-teal-600' : 'block text-base hover:text-teal-600 pt-2'} onClick={() => setMenuOpen(false)}>Contact Us</NavLink>
+
 
                     <div className='flex gap-10 justify-around pt-5 mt-4 border-t-2'>
                         {

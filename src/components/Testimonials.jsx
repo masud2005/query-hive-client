@@ -42,13 +42,13 @@ const Testimonials = () => {
     ];
 
     return (
-        <section className="container mx-auto px-2 md:px-5 pt-5 space-y-10 bg-gradient-to-b from-indigo-50 to-white my-10">
+        <section className="container mx-auto px-2 md:px-5 pt-5 space-y-10 bg-gradient-to-b from-indigo-50 to-white mt-14 mb-10">
             {/* Section Header */}
             <div className="text-center mb-12 px-5 ">
                 <h2 className="text-4xl font-extrabold text-teal-500 mb-4">
                 What Our <span className="text-indigo-500">Users Say</span>
                 </h2>
-                <p className="text-lg text-gray-600">
+                <p className="text-lg text-gray-600">   
                     Discover how QueryHive has helped our community achieve their goals.
                 </p>
             </div>

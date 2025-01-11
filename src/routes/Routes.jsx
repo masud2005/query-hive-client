@@ -13,6 +13,7 @@ import QueryDetails from "../pages/queryDetails";
 import UpdateQuery from "../pages/UpdateQuery";
 import ErrorPage from "../pages/ErrorPage";
 import AboutUs from "../pages/AboutUs";
+import ContactUs from "../pages/ContactUs";
 
 const router = createBrowserRouter([
     {
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
             {
                 path: '/about-us',
                 element: <AboutUs />
+            },
+            {
+                path: '/contact-us',
+                element: <ContactUs />
             },
             {
                 path: '/login',
