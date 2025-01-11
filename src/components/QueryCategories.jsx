@@ -4,27 +4,27 @@ const QueryCategories = () => {
     const categories = [
         {
             name: "Technical Support",
-            image: "https://i.ibb.co/7STvn5Y/technical-support.jpg",
+            image: "https://i.ibb.co.com/khgjkKF/download-3.jpg",
         },
         {
             name: "Billing Queries",
-            image: "https://i.ibb.co/yFX5vhk/billing-queries.jpg",
+            image: "https://i.ibb.co.com/zxVwCDN/pngtree-3d-currency-imag-png-image-13497503.png",
         },
         {
             name: "Product Information",
-            image: "https://i.ibb.co/Cnct09C/product-information.jpg",
+            image: "https://i.ibb.co.com/tMLbKN6/pim-product-information-system-concept-260nw-2366280683.webp",
         },
         {
             name: "Account Management",
-            image: "https://i.ibb.co/d6GvKgS/account-management.jpg",
+            image: "https://i.ibb.co.com/vDKyd10/audit-business-concept-compliance-internal-600nw-2488413191.webp",
         },
         {
             name: "Feedback & Suggestions",
-            image: "https://i.ibb.co/jLYkJ9q/feedback-suggestions.jpg",
+            image: "https://i.ibb.co.com/DgjrDbC/stock-vector-suggestion-vector-concept-business-people-putting-light-bulb-into-a-suggestion-box-2014.jpg",
         },
         {
             name: "General Inquiries",
-            image: "https://i.ibb.co/TkMSBMZ/general-inquiries.jpg",
+            image: "https://i.ibb.co.com/Xsy6t0F/premium-photo-1678048604398-f42dda6997bd.jpg",
         },
     ];
 
@@ -35,7 +35,7 @@ const QueryCategories = () => {
                 <h2 className="text-4xl font-extrabold text-teal-500 mb-4">
                     Explore Our <span className="text-indigo-500">Query Categories</span>
                 </h2>
-                <p className="text-lg text-gray-600">
+                <p className="text-lg ">
                     Browse through our categories to find the answers or support you need.
                 </p>
             </div>
@@ -50,7 +50,7 @@ const QueryCategories = () => {
                         <img
                             src={category.image}
                             alt={category.name}
-                            className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
+                            className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300 brightness-75"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-50 group-hover:opacity-70 transition-opacity duration-300"></div>
                         <h3 className="absolute bottom-4 left-4 text-2xl font-bold text-white">

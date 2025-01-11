@@ -52,7 +52,7 @@ const FAQ = () => {
                 <h2 className="text-4xl font-extrabold text-gray-800 mb-4">
                     <span className="text-teal-500">Frequently</span> <span className="text-indigo-500">Asked Questions</span>
                 </h2>
-                <p className="text-lg text-gray-600">
+                <p className="text-lg">
                     Find answers to common questions about QueryHive. For additional help, feel free to contact us.
                 </p>
             </div>

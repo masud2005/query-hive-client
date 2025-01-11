@@ -23,7 +23,7 @@ const RecentQueries = () => {
                 <h2 className="text-4xl font-extrabold text-gray-800 mb-4">
                     <span className="text-indigo-500">Recently</span> <span className="text-teal-500">Added Queries</span>
                 </h2>
-                <p className="text-lg text-gray-600">
+                <p className="text-lg">
                     Explore the recent product-related queries, including detailed descriptions, reasons, and recommendations.
                 </p>
             </div>

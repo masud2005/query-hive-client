@@ -89,7 +89,7 @@ const Queries = () => {
             {/* Queries Section */}
             <div className={`mt-10 mb-5 grid gap-2 md:gap-6 grid-cols-1 ${gridColumns === 2 ? "grid-cols-2" : ""} ${gridColumns === 3 ? "lg:grid-cols-3" : ""} ${gridColumns === 4 ? "lg:grid-cols-4" : ""} container mx-auto`}>
                 {sortedQueries.map((query) => (
-                    <div key={query._id} className="bg-gradient-to-br from-teal-50 p-1 md:p-4 rounded-lg shadow-lg hover:shadow-xl hover:from-indigo-100 border flex flex-col justify-between">
+                    <div key={query._id} className="bg-white  p-1 md:p-4 rounded-lg shadow-lg hover:shadow-xl  border flex flex-col justify-between">
                         <div>
                             <img
                                 src={query.productImageURL || "https://via.placeholder.com/300"}

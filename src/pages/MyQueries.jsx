@@ -88,11 +88,11 @@ const MyQueries = () => {
             </div>
 
             {/* Queries Section */}
-            <div className="overflow-x-auto container mx-auto">
+            <div className="overflow-x-auto container mx-auto mt-10 -mb-10">
                 <table className="table">
                     {/* head */}
-                    <thead>
-                        <tr className="text-base">
+                    <thead className="bg-gradient-to-r from-indigo-300 to-teal-300">
+                        <tr className="text-base text-black">
                             <th>Sl No</th>
                             <th>Name</th>
                             <th>CreateAt</th>
