@@ -4,6 +4,7 @@ import Testimonials from '../components/Testimonials';
 import FAQ from '../components/FAQ';
 import Slider from '../components/Slider';
 import { Helmet } from 'react-helmet-async';
+import QueryCategories from '../components/QueryCategories';
 
 const Home = () => {
     return (
@@ -13,6 +14,7 @@ const Home = () => {
             </Helmet>
             <Slider />
             <RecentQueries />
+            <QueryCategories />
             <Testimonials />
             <FAQ />
         </div>
