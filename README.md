@@ -5,6 +5,7 @@ QueryHive is a web application designed to facilitate the submission, management
 ---
 
 ## Purpose
+
 The purpose of QueryHive is to:
 - Enable users to voice their concerns and raise queries about specific products.
 - Provide a platform for community-driven recommendations on queries.
@@ -19,6 +20,7 @@ The purpose of QueryHive is to:
 ---
 
 ## Key Features
+
 - **Authentication:**
   - Email/Password-based registration and login.
   - Google login for quick access.
@@ -39,6 +41,7 @@ The purpose of QueryHive is to:
 ---
 
 ## Technologies Used
+
 ### Frontend:
 - **React**: A JavaScript library for building user interfaces.
 - **React Router Dom**: For navigation and routing.
@@ -70,3 +73,21 @@ The purpose of QueryHive is to:
 - react-tooltip: For tooltips.
 - sweetalert2: For alerts.
 - swiper: For interactive sliders.
+
+---
+
+## Running QueryHive Locally
+
+### Prerequisites:
+- **Node.js** (version 14 or later) installed.
+- **MongoDB** (either local or MongoDB Atlas).
+- A **Firebase account** for authentication (Google login and Email/Password login).
+
+### Setup Instructions:
+
+1. **Clone the repository**:
+   Clone the **QueryHive** repository to your local machine:
+
+   ```bash
+   git clone https://github.com/your-username/queryhive.git
+   cd queryhive
