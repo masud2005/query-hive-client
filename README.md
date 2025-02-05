@@ -13,6 +13,11 @@ The purpose of QueryHive is to:
 
 ---
 
+## Website Preview
+<div align="center">
+  <img src="https://i.ibb.co.com/fdc8mD9K/queries.png" alt="QueryHive" width="100%" />
+</div>
+
 ## Live URL
 
 [Live Demo](https://ask-and-recommend.web.app)
@@ -83,11 +88,16 @@ The purpose of QueryHive is to:
 - **MongoDB** (either local or MongoDB Atlas).
 - A **Firebase account** for authentication (Google login and Email/Password login).
 
-### Setup Instructions:
+## Installation
 
-1. **Clone the repository**:
-   Clone the **QueryHive** repository to your local machine:
+Step-by-step instructions to set up the project locally.
 
-   ```bash
-   git clone https://github.com/your-username/queryhive.git
-   cd queryhive
+```bash
+# Clone the repository
+https://github.com/masud2005/query-hive-client.git
+
+# Navigate to the project directory
+cd query-hive-client
+
+# Install dependencies
+npm install
