@@ -20,7 +20,6 @@ The purpose of QueryHive is to:
 
 ## Live URL
 
-[Live Demo](https://ask-and-recommend.web.app)
 Visit the live application: [Query Hive](https://ask-and-recommend.web.app)
 
 ---
