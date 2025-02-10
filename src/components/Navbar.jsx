@@ -59,13 +59,13 @@ const Navbar = () => {
     return (
         <nav className="h-[90px] place-content-center">
             <div className="container mx-auto flex justify-between items-center  py-4 px-2">
-                <div className="flex items-center">
-                    <img className="w-16 h-10" src="https://i.ibb.co.com/Xtg8XTf/download.png" alt="" />
-                    <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-transparent bg-clip-text">QueryHive</h1>
-                </div>
+                <Link to={'/'} className="flex items-center">
+                    <img className="w-16 " src="https://i.ibb.co.com/gLs0R7Wy/querypng-removebg-preview.png" alt="" />
+                    <h1 className="text-3xl font-bold bg-gradient-to-r from-teal-500  to-indigo-500 text-transparent bg-clip-text">QueryHive</h1>
+                </Link>
 
                 {/* Center Section: Navigation Links */}
-                <div className="hidden xl:flex items-center gap-6 ">
+                <div className="hidden xl:flex items-center gap-6 ">    
                     <NavLink to="/" className={({ isActive }) => isActive ? 'text-lg font-semibold border-b-2 border-indigo-600 text-teal-600' : 'text-base hover:text-indigo-600'}>Home</NavLink>
                     <NavLink to="/queries" className={({ isActive }) => isActive ? 'text-lg font-semibold border-b-2 border-indigo-600 text-teal-600' : 'text-base hover:text-indigo-600'}>Queries</NavLink>
                     {

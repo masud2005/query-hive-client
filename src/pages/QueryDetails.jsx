@@ -153,27 +153,27 @@ const QueryDetails = () => {
                             <table className="min-w-full border border-gray-300">
                                 <tbody>
                                     <tr className="border-b">
-                                        <td className="px-2 md:px-4 lg:px-2 xl:px-4 py-2 font-semibold text-teal-500 border-r">Product Title:</td>
+                                        <td className="px-2 md:px-4 lg:px-2 xl:px-4 py-2 font-semibold text-gray-700 border-r">Product Title:</td>
                                         <td className="px-2 md:px-4 lg:px-2 xl:px-4 py-2">{query.queryTitle}</td>
                                     </tr>
                                     <tr className="border-b">
-                                        <td className="px-2 md:px-4 lg:px-2 xl:px-4 py-2 font-semibold text-teal-500 border-r">Product Name:</td>
+                                        <td className="px-2 md:px-4 lg:px-2 xl:px-4 py-2 font-semibold text-gray-700 border-r">Product Name:</td>
                                         <td className="px-2 md:px-4 lg:px-2 xl:px-4 py-2">{query.productName || "Not Provided"}</td>
                                     </tr>
                                     <tr className="border-b">
-                                        <td className="px-2 md:px-4 lg:px-2 xl:px-4 py-2 font-semibold text-teal-500 border-r">Product Brand:</td>
+                                        <td className="px-2 md:px-4 lg:px-2 xl:px-4 py-2 font-semibold text-gray-700 border-r">Product Brand:</td>
                                         <td className="px-2 md:px-4 lg:px-2 xl:px-4 py-2">{query.productBrand}</td>
                                     </tr>
                                     <tr className="border-b">
-                                        <td className="px-2 md:px-4 lg:px-2 xl:px-4 py-2 font-semibold text-teal-500 border-r">Boycotting Reason:</td>
+                                        <td className="px-2 md:px-4 lg:px-2 xl:px-4 py-2 font-semibold text-gray-700 border-r">Boycotting Reason:</td>
                                         <td className="px-2 md:px-4 lg:px-2 xl:px-4 py-2">{query.boycottingReason}</td>
                                     </tr>
                                     <tr className="border-b">
-                                        <td className="px-2 md:px-4 lg:px-2 xl:px-4 py-2 font-semibold text-teal-500 border-r">Created Date:</td>
+                                        <td className="px-2 md:px-4 lg:px-2 xl:px-4 py-2 font-semibold text-gray-700 border-r">Created Date:</td>
                                         <td className="px-2 md:px-4 lg:px-2 xl:px-4 py-2">{new Date(query.createdAt).toLocaleString()}</td>
                                     </tr>
                                     <tr>
-                                        <td className="px-2 md:px-4 lg:px-2 xl:px-4 py-2 font-semibold text-teal-500 border-r">Recommendations Count:</td>
+                                        <td className="px-2 md:px-4 lg:px-2 xl:px-4 py-2 font-semibold text-gray-700 border-r">Recommendations Count:</td>
                                         <td className="px-2 md:px-4 lg:px-2 xl:px-4 py-2">{query.recommendationCount}</td>
                                     </tr>
                                 </tbody>
@@ -245,7 +245,7 @@ const QueryDetails = () => {
                         </div>
                         <button
                             type="submit"
-                            className="bg-gradient-to-r from-blue-400 to-teal-400 hover:from-blue-500 hover:to-teal-500 text-white px-4 py-2 rounded-md shadow"
+                            className="bg-teal-500 text-white py-2 px-4 rounded-lg hover:bg-teal-600 transition"
                         >
                             Add Recommendation
                         </button>

@@ -12,7 +12,7 @@ const ErrorPage = () => {
             <img className='w-[350px] h-[350px] -mt-10' src="https://i.ibb.co.com/60203sF4/404-Error-rafiki-2.png" alt="Error..." />
             {/* <h1 className='text-9xl font-semibold text-gray-500'>404</h1>
             <h2 className='text-5xl font-medium text-gray-500 py-3'>Page Not Found</h2> */}
-            <Link to={'/'} className='text-xl md:text-2xl -mt-10 text-teal-500 underline font-bold'>Go To Home Page</Link>
+            <Link to={'/'} className='text-xl -mt-10 text-teal-500 font-bold border border-teal-500 rounded-full px-4 py-1 hover:bg-teal-100 transition duration-300'>Go To Home Page</Link>
         </div>
     );
 };
