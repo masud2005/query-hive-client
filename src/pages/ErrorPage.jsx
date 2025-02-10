@@ -9,10 +9,10 @@ const ErrorPage = () => {
             <Helmet>
                 <title>404 Page Not Found | Query Hive</title>
             </Helmet>
-
-            <h1 className='text-9xl font-semibold text-gray-500'>404</h1>
-            <h2 className='text-5xl font-medium text-gray-500 py-3'>Page Not Found</h2>
-            <Link to={'/'} className='text-lg text-purple-700 underline'>Go To Home Page</Link>
+            <img className='w-[350px] h-[350px] -mt-10' src="https://i.ibb.co.com/60203sF4/404-Error-rafiki-2.png" alt="Error..." />
+            {/* <h1 className='text-9xl font-semibold text-gray-500'>404</h1>
+            <h2 className='text-5xl font-medium text-gray-500 py-3'>Page Not Found</h2> */}
+            <Link to={'/'} className='text-xl md:text-2xl -mt-10 text-teal-500 underline font-bold'>Go To Home Page</Link>
         </div>
     );
 };
