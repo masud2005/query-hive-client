@@ -3,12 +3,13 @@ import React from 'react';
 const Footer = () => {
     return (
         <footer className="bg-gradient-to-r from-teal-200 to-indigo-200 py-8">
-            <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-2">
+            <div className="container mx-auto flex flex-col md:flex-row justify-between gap-8 px-2">
                 {/* Column 1 */}
-                <div className='text-gray-700'>
+                <div className='text-gray-700 md:max-w-[300px] lg:max-w-[400px] 2xl:max-w-[576px]'>
                     <div className='flex items-center mb-5'>
-                        <img className='w-20' src="https://i.ibb.co.com/Xtg8XTf/download.png" alt="Logo..." />
-                        <h4 className="text-3xl font-bold text-gray-800 mb-4">QueryHive</h4>
+                        <img className='w-20' src="https://i.ibb.co.com/gLs0R7Wy/querypng-removebg-preview.png" alt="Logo..." />
+                        {/* <h4 className="text-3xl font-bold text-gray-800 mb-4 bg-gradient-to-r from-teal-500  to-indigo-500 text-transparent bg-clip-text">QueryHive</h4> */}
+                        <h4 className="text-3xl font-bold text-gray-800 mb-4 ">QueryHive</h4>
                     </div>
                     <p>
                         Your go-to platform for product recommendations and alternative solutions.
@@ -29,25 +30,21 @@ const Footer = () => {
                     <h4 className="text-3xl font-bold text-gray-800 mb-4">Follow Us</h4>
                     <ul className="flex space-x-4 text-gray-700 flex-wrap">
                         <li>
-                            <a href="https://www.facebook.com" target="_blank" rel="noreferrer">
-                                <i className="fab fa-facebook-f"></i> Facebook
+                            <a href="https://www.facebook.com/MasudRana2005" target="_blank" rel="noreferrer">
+                                Facebook
                             </a>
                         </li>
                         <li>
-                            <a href="https://linkedin.com" target="_blank" rel="noreferrer">
-                                <i className="fab fa-linkedin"></i> LinkedIn
+                            <a href="https://www.linkedin.com/in/masud-rana2005/" target="_blank" rel="noreferrer">
+                                 LinkedIn
                             </a>
                         </li>
                         <li>
-                            <a href="https://twitter.com" target="_blank" rel="noreferrer">
-                                <i className="fab fa-twitter"></i> Twitter
+                            <a href="https://github.com/masud2005" target="_blank" rel="noreferrer">
+                                 GitHub
                             </a>
                         </li>
-                        <li>
-                            <a href="https://instagram.com" target="_blank" rel="noreferrer">
-                                <i className="fab fa-instagram"></i> Instagram
-                            </a>
-                        </li>
+
                     </ul>
                 </div>
             </div>
