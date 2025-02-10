@@ -138,9 +138,9 @@ const QueryDetails = () => {
                     </div>
 
                     {/* Product Information Section */}
-                    <div className="border-t pt-6 flex flex-col md:flex-row gap-6 ">
+                    <div className="border-t pt-6 flex flex-col lg:flex-col gap-6 items-center">
                         {/* Product Image */}
-                        <div className="flex-shrink-0 w-full md:w-1/3 h-40 md:h-52 rounded-lg overflow-hidden shadow-md">
+                        <div className="flex-shrink-0 w-full  h-40 md:h-52 rounded-lg overflow-hidden shadow-md">
                             <img
                                 src={query.productImageURL || "https://via.placeholder.com/300"}
                                 alt="Product"
@@ -149,15 +149,37 @@ const QueryDetails = () => {
                         </div>
 
                         {/* Product Details */}
-                        <div className="flex-grow place-content-center">
-                            <div className="space-y-4 text-gray-700">
-                                <span className="font-semibold text-teal-500">Product Name:</span> {query.queryTitle} <br />
-                                <span className="font-semibold text-teal-500">Product Name:</span> {query.productName || "Not Provided"} <br />
-                                <span className="font-semibold text-teal-500">Product Brand:</span> {query.productBrand} <br />
-                                <span className="font-semibold text-teal-500">Created Date:</span> {new Date(query.createdAt).toLocaleString()} <br />
-                                <span className="font-semibold text-teal-500">Recommendations Count:</span> {query.recommendationCount}
-                            </div>
+                        <div className="overflow-x-auto">
+                            <table className="min-w-full border border-gray-300">
+                                <tbody>
+                                    <tr className="border-b">
+                                        <td className="px-2 md:px-4 lg:px-2 xl:px-4 py-2 font-semibold text-teal-500 border-r">Product Title:</td>
+                                        <td className="px-2 md:px-4 lg:px-2 xl:px-4 py-2">{query.queryTitle}</td>
+                                    </tr>
+                                    <tr className="border-b">
+                                        <td className="px-2 md:px-4 lg:px-2 xl:px-4 py-2 font-semibold text-teal-500 border-r">Product Name:</td>
+                                        <td className="px-2 md:px-4 lg:px-2 xl:px-4 py-2">{query.productName || "Not Provided"}</td>
+                                    </tr>
+                                    <tr className="border-b">
+                                        <td className="px-2 md:px-4 lg:px-2 xl:px-4 py-2 font-semibold text-teal-500 border-r">Product Brand:</td>
+                                        <td className="px-2 md:px-4 lg:px-2 xl:px-4 py-2">{query.productBrand}</td>
+                                    </tr>
+                                    <tr className="border-b">
+                                        <td className="px-2 md:px-4 lg:px-2 xl:px-4 py-2 font-semibold text-teal-500 border-r">Boycotting Reason:</td>
+                                        <td className="px-2 md:px-4 lg:px-2 xl:px-4 py-2">{query.boycottingReason}</td>
+                                    </tr>
+                                    <tr className="border-b">
+                                        <td className="px-2 md:px-4 lg:px-2 xl:px-4 py-2 font-semibold text-teal-500 border-r">Created Date:</td>
+                                        <td className="px-2 md:px-4 lg:px-2 xl:px-4 py-2">{new Date(query.createdAt).toLocaleString()}</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="px-2 md:px-4 lg:px-2 xl:px-4 py-2 font-semibold text-teal-500 border-r">Recommendations Count:</td>
+                                        <td className="px-2 md:px-4 lg:px-2 xl:px-4 py-2">{query.recommendationCount}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
+
                     </div>
                 </div>
 
