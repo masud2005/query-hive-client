@@ -29,7 +29,7 @@ const QueryCategories = () => {
     ];
 
     return (
-        <div className="container mx-auto px-4 my-10">
+        <div className="container mx-auto px-2 xl:px-0 my-10">
             {/* Section Header */}
             <div className="text-center mb-12 px-5">
                 <h2 className="text-4xl font-extrabold text-teal-500 mb-4">

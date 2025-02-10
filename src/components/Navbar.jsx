@@ -65,7 +65,7 @@ const Navbar = () => {
                 </Link>
 
                 {/* Center Section: Navigation Links */}
-                <div className="hidden xl:flex items-center gap-6 ">    
+                <div className="hidden xl:flex items-center gap-6 ">
                     <NavLink to="/" className={({ isActive }) => isActive ? 'text-lg font-semibold border-b-2 border-indigo-600 text-teal-600' : 'text-base hover:text-indigo-600'}>Home</NavLink>
                     <NavLink to="/queries" className={({ isActive }) => isActive ? 'text-lg font-semibold border-b-2 border-indigo-600 text-teal-600' : 'text-base hover:text-indigo-600'}>Queries</NavLink>
                     {
