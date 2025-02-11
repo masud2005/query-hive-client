@@ -9,7 +9,7 @@ import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
 const Navbar = () => {
     const { user, userLogout } = useContext(AuthContext);
     const [menuOpen, setMenuOpen] = useState(false);
-    const [isDarkMode, setIsDarkMode] = useState(false)
+    const [isDarkMode, setIsDarkMode] = useState(false);
 
     const handleLogout = () => {
         // console.log('Logout');
@@ -57,7 +57,7 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="h-[90px] place-content-center">
+        <nav className="place-content-center container mx-auto relative">
             <div className="container mx-auto flex justify-between items-center  py-4 px-2">
                 <Link to={'/'} className="flex items-center">
                     <img className="w-16 " src="https://i.ibb.co.com/gLs0R7Wy/querypng-removebg-preview.png" alt="" />

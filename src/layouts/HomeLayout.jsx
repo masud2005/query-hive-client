@@ -7,7 +7,7 @@ const HomeLayout = () => {
     return (
         <div>
             {/* Header */}
-            <header className='sticky top-0 z-50 shadow-lg bg-opacity-60 backdrop-blur-md'>
+            <header className='sticky top-0 z-50 shadow-lg bg-opacity-60 backdrop-blur-md h-[90px] '>
                 <Navbar />
             </header>
 
