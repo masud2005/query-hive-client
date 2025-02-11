@@ -91,7 +91,7 @@ const Login = () => {
                         <input type={`${showPassword ? 'text' : 'password'}`} name="password" placeholder="Enter your password" className="input input-bordered w-full px-4 py-2 rounded-md border-gray-300 focus:outline-none focus:ring-1 focus:ring-teal-300 transition" />
                         <span onClick={() => setShowPassword(!showPassword)} className="absolute right-3 bottom-[10px] text-gray-600 bg-gray-100 rounded-full cursor-pointer p-1"> {showPassword ? <FaEyeSlash size={20} /> : <FaEye size={20} />} </span>
                     </div>
-                    <p className="text-sm text-right"><Link className="text-indigo-600 hover:underline"> Forgot your password? </Link></p>
+                    {/* <p className="text-sm text-right"><Link className="text-indigo-600 hover:underline"> Forgot your password? </Link></p> */}
                     <button className="btn w-full py-2 bg-indigo-500 text-white text-base rounded-lg hover:bg-indigo-600 transition"> Login </button>
                 </form>
                 <div className="mt-6">
