@@ -83,7 +83,7 @@ const Navbar = () => {
                 <div className="hidden xl:flex gap-3 items-center">
                     <button
                         onClick={toggleTheme}
-                        className={`w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-700 shadow-md transition-transform transform hover:scale-110`}
+                        className={`w-12 h-12 flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-700 shadow-md transition-transform transform hover:scale-110`}
                     >
                         {isDarkMode ? (
                             <MdOutlineLightMode size={24} />
@@ -96,12 +96,12 @@ const Navbar = () => {
                             user ?
                                 <div className="flex items-center gap-3">
                                     <div>
-                                        <img data-tooltip-id="my-tooltip-1" className="rounded-full w-[52px] h-[52px] border border-teal-600 shadow-md transition-transform transform hover:scale-110" src={user?.photoURL || 'https://img.icons8.com/?size=48&id=z-JBA_KtSkxG&format=png'} alt="" />
+                                        <img data-tooltip-id="my-tooltip-1" className="rounded-full w-[48px] h-[48px] border border-teal-600 shadow-md transition-transform transform hover:scale-110" src={user?.photoURL || 'https://img.icons8.com/?size=48&id=z-JBA_KtSkxG&format=png'} alt="" />
                                     </div>
-                                    <button onClick={handleLogout} className="btn border-teal-600 bg-gradient-to-r from-indigo-300 to-teal-300 hover:from-indigo-400 hover:to-teal-400 text-gray-800 hover:border-indigo-600 rounded-xl transition-colors duration-500 text-base">Log Out</button>
+                                    <button onClick={handleLogout} className="bg-teal-500 text-white py-2 px-4 rounded-lg hover:bg-teal-600 transition">Log Out</button>
                                 </div>
                                 :
-                                <NavLink to="/login" className="btn border-teal-600 bg-gradient-to-r from-indigo-300 to-teal-300 hover:from-indigo-400 hover:to-teal-400 text-gray-800 hover:border-indigo-600 rounded-xl transition-colors duration-500 text-base">Login</NavLink>
+                                <NavLink to="/login" className="bg-teal-500 text-white py-2 px-4 rounded-lg hover:bg-teal-600 transition">Login</NavLink>
                         }
                     </div>
                 </div>
@@ -154,10 +154,10 @@ const Navbar = () => {
                                     <div>
                                         <img data-tooltip-id="my-tooltip-1" className="rounded-full w-[52px] h-[52px] border border-teal-600 shadow-md transition-transform transform hover:scale-110" src={user?.photoURL || 'https://img.icons8.com/?size=48&id=z-JBA_KtSkxG&format=png'} alt="" />
                                     </div>
-                                    <button onClick={handleLogout} className='btn border-teal-600 bg-gradient-to-r from-indigo-300 to-teal-300 hover:from-indigo-400 hover:to-teal-400 text-gray-800 hover:border-indigo-600 rounded-xl transition-colors duration-500 text-base'>Logout</button>
+                                    <button onClick={handleLogout} className='bg-teal-500 text-white py-2 px-4 rounded-lg hover:bg-teal-600 transition'>Logout</button>
                                 </div>
                                 :
-                                <NavLink to="/login" className="btn border-teal-600 bg-gradient-to-r from-indigo-300 to-teal-300 hover:from-indigo-400 hover:to-teal-400 text-gray-800 hover:border-indigo-600 rounded-xl transition-colors duration-500 text-base" onClick={() => setMenuOpen(false)}>Login</NavLink>
+                                <NavLink to="/login" className="bg-teal-500 text-white py-2 px-4 rounded-lg hover:bg-teal-600 transition" onClick={() => setMenuOpen(false)}>Login</NavLink>
                         }
 
                     </div>

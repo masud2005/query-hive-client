@@ -31,7 +31,6 @@ const RecommendationsForMe = () => {
 
     return (
         <div className="container mx-auto my-10 p-2 md:p-5">
-
             <Helmet>
                 <title>Recommendations For Me | Query Hive</title>
             </Helmet>

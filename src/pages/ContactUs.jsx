@@ -40,12 +40,12 @@ const ContactUs = () => {
             {/* Messenger */}
             <div className="bg-blue-200 p-6 rounded-lg text-center">
               <h3 className="text-2xl font-semibold">Messenger</h3>
-              <p className="mt-2">Masud Rana</p>
+              <p className="mt-2">Md. Masud Rana</p>
               <a
                 href="https://m.me/MasudRana2005"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 inline-block px-4 py-2 bg-blue-600 hover:bg-blue-500 rounded"
+                className="mt-4 inline-block px-4 py-2 text-white bg-blue-600 hover:bg-blue-500 rounded"
               >
                 Send a Message
               </a>
@@ -58,7 +58,7 @@ const ContactUs = () => {
                 href="https://wa.me/8801834140688"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 inline-block px-4 py-2 bg-green-600 hover:bg-green-500 rounded"
+                className="mt-4 inline-block px-4 py-2 text-white bg-green-600 hover:bg-green-500 rounded"
               >
                 Send a Message
               </a>
@@ -71,7 +71,7 @@ const ContactUs = () => {
                 href="mailto:masud20012005@gmail.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 inline-block px-4 py-2 bg-purple-600 hover:bg-purple-500 rounded"
+                className="mt-4 inline-block px-4 py-2 text-white bg-purple-600 hover:bg-purple-500 rounded"
               >
                 Send a Message
               </a>
@@ -84,26 +84,26 @@ const ContactUs = () => {
                 type="text"
                 name="from_name"
                 placeholder="Enter Your Name"
-                className="w-full px-4 py-3 border border-purple-300 rounded-lg placeholder-gray-500 outline-none focus:ring-1 focus:ring-blue-500"
+                className="w-full px-4 py-3 border border-purple-300 rounded-lg placeholder-gray-500 outline-none focus:ring-1 focus:ring-teal-500"
                 required
               />
               <input
                 type="email"
                 name="reply_to"
                 placeholder="Enter Your Email"
-                className="w-full px-4 py-3 border border-purple-300 rounded-lg placeholder-gray-500 outline-none focus:ring-1 focus:ring-blue-500"
+                className="w-full px-4 py-3 border border-purple-300 rounded-lg placeholder-gray-500 outline-none focus:ring-1 focus:ring-teal-500"
                 required
               />
               <textarea
                 name="message"
                 placeholder="Your Message Here..."
                 rows="6"
-                className="w-full px-4 py-3 border border-purple-300 rounded-lg placeholder-gray-500 outline-none focus:ring-1 focus:ring-blue-500"
+                className="w-full px-4 py-3 border border-purple-300 rounded-lg placeholder-gray-500 outline-none focus:ring-1 focus:ring-teal-500"
                 required
               ></textarea>
               <button
                 type="submit"
-                className="w-full py-3 bg-purple-500 border border-purple-500 hover:bg-transparent hover:text-black transition rounded-lg font-semibold"
+                className="w-full py-3 text-white bg-purple-500 border border-purple-500 hover:bg-transparent hover:text-black transition rounded-lg font-semibold"
               >
                 SEND MESSAGE
               </button>
