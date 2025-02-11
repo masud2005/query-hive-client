@@ -9,7 +9,7 @@ const Footer = () => {
                     <div className='flex items-center mb-5'>
                         <img className='w-20' src="https://i.ibb.co.com/gLs0R7Wy/querypng-removebg-preview.png" alt="Logo..." />
                         {/* <h4 className="text-3xl font-bold text-gray-800 mb-4 bg-gradient-to-r from-teal-500  to-indigo-500 text-transparent bg-clip-text">QueryHive</h4> */}
-                        <h4 className="text-3xl font-bold text-gray-800 mb-4 ">QueryHive</h4>
+                        <h4 className="text-3xl font-bold text-gray-800 ">QueryHive</h4>
                     </div>
                     <p>
                         Your go-to platform for product recommendations and alternative solutions.
