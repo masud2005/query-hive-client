@@ -45,7 +45,7 @@ const ContactUs = () => {
                 href="https://m.me/MasudRana2005"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 inline-block px-4 py-2 text-white bg-blue-600 hover:bg-blue-500 rounded"
+                className="mt-4 inline-block px-4 py-2 text-white bg-blue-600 hover:bg-blue-500 rounded transition duration-300"
               >
                 Send a Message
               </a>
@@ -58,7 +58,7 @@ const ContactUs = () => {
                 href="https://wa.me/8801834140688"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 inline-block px-4 py-2 text-white bg-green-600 hover:bg-green-500 rounded"
+                className="mt-4 inline-block px-4 py-2 text-white bg-green-600 hover:bg-green-500 rounded transition duration-300"
               >
                 Send a Message
               </a>
@@ -71,7 +71,7 @@ const ContactUs = () => {
                 href="mailto:masud20012005@gmail.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 inline-block px-4 py-2 text-white bg-purple-600 hover:bg-purple-500 rounded"
+                className="mt-4 inline-block px-4 py-2 text-white bg-purple-600 hover:bg-purple-500 rounded transition duration-300"
               >
                 Send a Message
               </a>
@@ -103,7 +103,7 @@ const ContactUs = () => {
               ></textarea>
               <button
                 type="submit"
-                className="w-full py-3 text-white bg-purple-500 border border-purple-500 hover:bg-transparent hover:text-black transition rounded-lg font-semibold"
+                className="w-full py-3 text-white bg-purple-500 border border-purple-500 hover:bg-transparent hover:text-black transition duration-300 rounded-lg font-semibold"
               >
                 SEND MESSAGE
               </button>

@@ -46,9 +46,9 @@ const Testimonials = () => {
             {/* Section Header */}
             <div className="text-center mb-12 px-5 ">
                 <h2 className="text-4xl font-extrabold text-teal-500 mb-4">
-                What Our <span className="text-indigo-500">Users Say</span>
+                    What Our <span className="text-indigo-500">Users Say</span>
                 </h2>
-                <p className="text-lg text-gray-900">   
+                <p className="text-lg text-gray-900">
                     Discover how QueryHive has helped our community achieve their goals.
                 </p>
             </div>
