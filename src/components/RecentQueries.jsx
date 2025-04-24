@@ -50,7 +50,7 @@ const RecentQueries = () => {
                                 />
                             </div>
                             {/* Card Content */}
-                            <div className="p-6 flex-1 flex flex-col border-t border-gray-200">
+                            <div className="p-4 flex-1 flex flex-col border-t border-gray-200">
                                 <h3 className="text-xl font-bold text-gray-800 mb-2">{query.queryTitle}</h3>
                                 <p className="text-gray-500 mb-2">{query.description}</p>
                                 <p className="text-gray-500">Brand: {query.productBrand}</p>
