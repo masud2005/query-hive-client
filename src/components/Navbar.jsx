@@ -57,7 +57,7 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="place-content-center container mx-auto relative">
+        <nav className="place-content-center container mx-auto">
             <div className="container mx-auto flex justify-between items-center  py-4 px-2">
                 <Link to={'/'} className="flex items-center">
                     <img className="w-16 " src="https://i.ibb.co.com/gLs0R7Wy/querypng-removebg-preview.png" alt="" />
@@ -122,16 +122,18 @@ const Navbar = () => {
             />
 
             {/* Mobile Menu */}
-            <button
-                onClick={toggleTheme}
-                className={`w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-700 shadow-md transition-transform transform hover:scale-110 absolute top-6 right-14 xl:hidden`}
-            >
-                {isDarkMode ? (
-                    <MdOutlineLightMode size={24} />
-                ) : (
-                    <MdOutlineDarkMode size={24} />
-                )}
-            </button>
+            <div className="container relative">
+                <button
+                    onClick={toggleTheme}
+                    className={`w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-700 shadow-md transition-transform transform hover:scale-110 absolute -top-[65px] right-14 xl:hidden`}
+                >
+                    {isDarkMode ? (
+                        <MdOutlineLightMode size={24} />
+                    ) : (
+                        <MdOutlineDarkMode size={24} />
+                    )}
+                </button>
+            </div>
             <div className={`${menuOpen ? 'left-0' : '-left-[100%]'} absolute duration-500 w-full bg-gray-50/95`}>
                 <div className={`flex-col xl:hidden gap-4 py-4 px-4`}>
                     <NavLink to="/" className={({ isActive }) => isActive ? 'block text-lg font-semibold border-b-2 border-indigo-600 text-teal-600' : 'block text-base hover:text-teal-600 pt-2'} onClick={() => setMenuOpen(false)}>Home</NavLink>
