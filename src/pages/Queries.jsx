@@ -89,20 +89,24 @@ const Queries = () => {
             {/* Queries Section */}
             <div className={`mt-10 mb-5 grid gap-2 md:gap-6 lg:gap-3 2xl:gap-6 grid-cols-1 ${gridColumns === 2 ? "grid-cols-2" : ""} ${gridColumns === 3 ? "lg:grid-cols-3" : ""} ${gridColumns === 4 ? "lg:grid-cols-4" : ""} container mx-auto`}>
                 {sortedQueries.map((query) => (
-                    <div key={query._id} className="bg-white  p-1 md:p-4 rounded-lg shadow-lg hover:shadow-xl  border flex flex-col justify-between">
+                    <div key={query._id} className="bg-white  rounded-lg shadow-lg hover:shadow-xl  border flex flex-col justify-between">
                         <div>
-                            <img
-                                src={query.productImageURL || "https://via.placeholder.com/300"}
-                                alt={query.productName}
-                                className="w-full h-40 lg:h-28 xl:h-44 2xl:h-48 object-fill rounded-t-lg mb-4"
-                            />
-                            <h2 className="text-xl md:text-2xl lg:text-xl xl:text-2xl font-bold mb-2 text-gray-800">{query.queryTitle}</h2>
-                            <p className="text-gray-700 mb-2 text-sm md:text-base"><span className="font-semibold text-sm md:text-base">Product Name:</span> {query.productName}</p>
-                            <p className="text-gray-600 text-sm md:text-base mb-2"><span className='font-semibold'>Created At:</span> {new Date(query.createdAt).toLocaleString()}</p>
-                            <p className="text-gray-800 font-medium mb-2">
-                                <span className="font-semibold">Recommendations:</span>{" "}
-                                {query.recommendationCount || 0}
-                            </p>
+                            <div className='relative overflow-hidden'>
+                                <img
+                                    src={query.productImageURL || "https://via.placeholder.com/300"}
+                                    alt={query.productName}
+                                    className="w-full h-48 object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
+                                />
+                            </div>
+                            <div className='p-4 flex-1 flex flex-col border-t border-gray-200'>
+                                <h2 className="text-xl md:text-2xl lg:text-xl xl:text-2xl font-bold mb-2 text-gray-800">{query.queryTitle}</h2>
+                                <p className="text-gray-700 mb-2 text-sm md:text-base"><span className="font-semibold text-sm md:text-base">Product Name:</span> {query.productName}</p>
+                                <p className="text-gray-600 text-sm md:text-base mb-2"><span className='font-semibold'>Created At:</span> {new Date(query.createdAt).toLocaleString()}</p>
+                                <p className="text-gray-800 font-medium mb-2">
+                                    <span className="font-semibold">Recommendations:</span>{" "}
+                                    {query.recommendationCount || 0}
+                                </p>
+                            </div>
                         </div>
                         <div className='flex justify-center border-t pt-3 mt-5'>
                             <Link to={`/details/${query._id}`}
