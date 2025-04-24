@@ -98,10 +98,10 @@ const Navbar = () => {
                                     <div>
                                         <img data-tooltip-id="my-tooltip-1" className="rounded-full w-[48px] h-[48px] border border-teal-600 shadow-md transition-transform transform hover:scale-110" src={user?.photoURL || 'https://img.icons8.com/?size=48&id=z-JBA_KtSkxG&format=png'} alt="" />
                                     </div>
-                                    <button onClick={handleLogout} className="bg-teal-500 text-white py-2 px-4 rounded-lg hover:bg-teal-600 transition">Log Out</button>
+                                    <button onClick={handleLogout} className="bg-teal-500 text-white py-2 px-4 rounded-lg hover:bg-teal-600 transition duration-300">Log Out</button>
                                 </div>
                                 :
-                                <NavLink to="/login" className="bg-teal-500 text-white py-2 px-4 rounded-lg hover:bg-teal-600 transition">Login</NavLink>
+                                <NavLink to="/login" className="bg-teal-500 text-white py-2 px-4 rounded-lg hover:bg-teal-600 transition duration-300">Login</NavLink>
                         }
                     </div>
                 </div>
