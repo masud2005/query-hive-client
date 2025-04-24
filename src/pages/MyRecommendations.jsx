@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../hooks/useAxiosSecure';
 import { Helmet } from 'react-helmet-async';
+import { RiDeleteBin6Line } from "react-icons/ri";
 
 const MyRecommendations = () => {
     const { user } = useContext(AuthContext);
@@ -110,11 +111,11 @@ const MyRecommendations = () => {
                                             <th>{index + 1}</th>
                                             <td><img className="w-14 h-14 rounded-lg" src={recommend.recommendedProductImage} alt="Recommended Image..." /></td>
                                             <td>{recommend.productName}</td>
-                                            <td>{recommend.recommendationTitle  }</td>
+                                            <td>{recommend.recommendationTitle}</td>
                                             <td>{recommend.recommendationReason}</td>
                                             <td>{new Date(recommend.currentTime).toLocaleString()}</td>
                                             <td>
-                                                <button onClick={() => handleDeleteRecommend(recommend._id)} className="bg-red-400 hover:bg-red-500 transition-all duration-200 py-[6px] px-3 rounded-full cursor-pointer text-black whitespace-nowrap">Delete</button>
+                                                <button onClick={() => handleDeleteRecommend(recommend._id)} className="bg-red-300 hover:bg-red-400 transition duration-300 py-[6px] px-3 rounded-full cursor-pointer text-black whitespace-nowrap"><RiDeleteBin6Line size={18} /></button>
                                             </td>
                                         </tr>
                                     ))}
