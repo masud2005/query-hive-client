@@ -124,15 +124,15 @@ const MyQueries = () => {
                                     {new Date(query.createdAt).toLocaleString()}
                                 </td>
                                 <td className="space-x-2 text-center">
-                                    <Link to={`/details/${query._id}`} className="flex-1 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 text-center whitespace-nowrap">
+                                    <Link to={`/details/${query._id}`} className="flex-1 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300 text-center whitespace-nowrap">
                                         View Details
                                     </Link>
-                                    <Link to={`/update-query/${query._id}`} className="flex-1 bg-teal-500 text-white py-2 px-4 rounded-lg hover:bg-teal-600 text-center ">
+                                    <Link to={`/update-query/${query._id}`} className="flex-1 bg-teal-500 text-white py-2 px-4 rounded-lg hover:bg-teal-600 transition duration-300 text-center ">
                                         Update
                                     </Link>
                                     <button
                                         onClick={() => handleDelete(query._id)}
-                                        className="flex-1 bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600"
+                                        className="flex-1 bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 transition duration-300"
                                     >
                                         Delete
                                     </button>
