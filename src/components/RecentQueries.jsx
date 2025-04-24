@@ -59,7 +59,7 @@ const RecentQueries = () => {
                             </div>
                             {/* User Info */}
                             <div className="p-4 bg-gray-100 mt-auto border-t border-gray-300 text-center">
-                                <Link to={`/details/${query._id}`} className="flex-1 bg-teal-500 text-white py-2 px-4 rounded-lg hover:bg-teal-600 text-center whitespace-nowrap">
+                                <Link to={`/details/${query._id}`} className="flex-1 bg-teal-500 text-white py-2 px-4 rounded-lg hover:bg-teal-600 transition duration-300 text-center whitespace-nowrap">
                                     View Details
                                 </Link>
                             </div>
