@@ -1,4 +1,4 @@
-import React from 'react';
+import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
     return (
@@ -29,19 +29,19 @@ const Footer = () => {
                 <div>
                     <h4 className="text-3xl font-bold text-gray-800 mb-4">Follow Us</h4>
                     <ul className="flex space-x-4 text-gray-700 flex-wrap">
-                        <li>
+                        <li className="bg-white hover:bg-gray-100 transition duration-300 rounded-full p-2">
                             <a href="https://www.facebook.com/MasudRana2005" target="_blank" rel="noreferrer">
-                                Facebook
+                                <FaFacebook size={24} />
                             </a>
                         </li>
-                        <li>
+                        <li className="bg-white hover:bg-gray-100 transition duration-300 rounded-full p-2">
                             <a href="https://www.linkedin.com/in/masud-rana2005/" target="_blank" rel="noreferrer">
-                                 LinkedIn
+                                <FaLinkedin size={24} />
                             </a>
                         </li>
-                        <li>
+                        <li className="bg-white hover:bg-gray-100 transition duration-300 rounded-full p-2">
                             <a href="https://github.com/masud2005" target="_blank" rel="noreferrer">
-                                 GitHub
+                            <FaGithub size={24} />
                             </a>
                         </li>
 
