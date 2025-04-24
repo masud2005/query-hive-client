@@ -39,7 +39,7 @@ const RecentQueries = () => {
                     {queries.map(query => (
                         <div
                             key={query._id}
-                            className="rounded-lg overflow-hidden shadow-lg bg-white group flex flex-col h-full"
+                            className="rounded-lg overflow-hidden shadow-lg bg-white group flex flex-col h-full hover:shadow-xl"
                         >
                             {/* Card Image */}
                             <div className="relative overflow-hidden">
